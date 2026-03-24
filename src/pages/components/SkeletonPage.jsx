@@ -21,22 +21,22 @@ export default function SkeletonPage() {
             <span className="doc-demo__title">Variants</span>
             <span className="doc-demo__tag">hl-skeleton</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ gap: 'var(--hl-sp-3)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--hl-sp-2)', marginBottom: 'var(--hl-sp-1)' }}>
-              <span style={{ width: 80, fontSize: 'var(--hl-text-xs)', color: 'var(--hl-text-muted)' }}>--avatar</span>
+          <div className="doc-demo__preview doc-demo__preview--col" style={{ gap: 16 }}>
+            <div>
+              <div style={{ fontSize: 11, color: 'var(--hl-text-muted)', marginBottom: 6 }}>--avatar (32×32)</div>
               <div className="hl-skeleton hl-skeleton--avatar" />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--hl-sp-2)', marginBottom: 'var(--hl-sp-1)' }}>
-              <span style={{ width: 80, fontSize: 'var(--hl-text-xs)', color: 'var(--hl-text-muted)' }}>--title</span>
-              <div className="hl-skeleton hl-skeleton--title" style={{ flex: 1 }} />
+            <div>
+              <div style={{ fontSize: 11, color: 'var(--hl-text-muted)', marginBottom: 6 }}>--title (h:20px, w:50%)</div>
+              <div className="hl-skeleton hl-skeleton--title" style={{ width: '50%', minWidth: 200 }} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--hl-sp-2)', marginBottom: 'var(--hl-sp-1)' }}>
-              <span style={{ width: 80, fontSize: 'var(--hl-text-xs)', color: 'var(--hl-text-muted)' }}>--text</span>
-              <div className="hl-skeleton hl-skeleton--text" style={{ flex: 1 }} />
+            <div>
+              <div style={{ fontSize: 11, color: 'var(--hl-text-muted)', marginBottom: 6 }}>--text (h:14px, w:80%)</div>
+              <div className="hl-skeleton hl-skeleton--text" style={{ width: '80%', minWidth: 300 }} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--hl-sp-2)' }}>
-              <span style={{ width: 80, fontSize: 'var(--hl-text-xs)', color: 'var(--hl-text-muted)' }}>--block</span>
-              <div className="hl-skeleton hl-skeleton--block" style={{ flex: 1 }} />
+            <div>
+              <div style={{ fontSize: 11, color: 'var(--hl-text-muted)', marginBottom: 6 }}>--block (h:64px, w:100%)</div>
+              <div className="hl-skeleton hl-skeleton--block" style={{ width: '100%' }} />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, Area, AreaChart,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
-import { hlColors, hlAxisStyle, hlGridStyle, hlTooltipStyle } from '../chartTheme';
+import { useChartTheme } from '../chartTheme';
 
 /* ===== 샘플 데이터 ===== */
 const barData = [
@@ -40,7 +40,6 @@ const donutData = [
   { name: '점검', value: 4 },
   { name: '정지', value: 2 },
 ];
-const donutColors = [hlColors.status.success, hlColors.status.warning, hlColors.status.error];
 
 const multiLineData = [
   { name: '1월', A라인: 92, B라인: 85, C라인: 78 },
@@ -52,6 +51,10 @@ const multiLineData = [
 ];
 
 export default function DataViz() {
+  const ct = useChartTheme();
+  const donutColors = [ct.colors.status.success, ct.colors.status.warning, ct.colors.status.error];
+  const gradId = 'hlAreaGrad';
+
   return (
     <>
       <div className="doc-page-head">
@@ -91,11 +94,11 @@ export default function DataViz() {
               <div className="hl-card__body">
                 <ResponsiveContainer width="100%" height={240}>
                   <BarChart data={barData} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>
-                    <CartesianGrid {...hlGridStyle} vertical={false} />
-                    <XAxis dataKey="name" tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <YAxis tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <Tooltip {...hlTooltipStyle} />
-                    <Bar dataKey="생산량" fill={hlColors.series[2]} radius={[4, 4, 0, 0]} barSize={32} />
+                    <CartesianGrid {...ct.grid} vertical={false} />
+                    <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
+                    <YAxis tick={ct.axis} axisLine={false} tickLine={false} />
+                    <Tooltip {...ct.tooltip} />
+                    <Bar dataKey="생산량" fill={ct.colors.series[2]} radius={[4, 4, 0, 0]} barSize={32} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -119,13 +122,13 @@ export default function DataViz() {
               <div className="hl-card__body">
                 <ResponsiveContainer width="100%" height={240}>
                   <LineChart data={lineData} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>
-                    <CartesianGrid {...hlGridStyle} vertical={false} />
-                    <XAxis dataKey="name" tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <YAxis tick={hlAxisStyle} axisLine={false} tickLine={false} domain={[0, 100]} />
-                    <Tooltip {...hlTooltipStyle} />
+                    <CartesianGrid {...ct.grid} vertical={false} />
+                    <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
+                    <YAxis tick={ct.axis} axisLine={false} tickLine={false} domain={[0, 100]} />
+                    <Tooltip {...ct.tooltip} />
                     <Line
-                      type="monotone" dataKey="가동률" stroke={hlColors.series[1]}
-                      strokeWidth={2} dot={{ r: 4, fill: hlColors.series[1], stroke: '#fff', strokeWidth: 2 }}
+                      type="monotone" dataKey="가동률" stroke={ct.colors.series[1]}
+                      strokeWidth={2} dot={{ r: 4, fill: ct.colors.series[1], stroke: ct.dotStroke, strokeWidth: 2 }}
                       activeDot={{ r: 6 }}
                     />
                   </LineChart>
@@ -152,19 +155,19 @@ export default function DataViz() {
                 <ResponsiveContainer width="100%" height={240}>
                   <AreaChart data={areaData} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>
                     <defs>
-                      <linearGradient id="hlAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor={hlColors.series[2]} stopOpacity={0.3} />
-                        <stop offset="100%" stopColor={hlColors.series[2]} stopOpacity={0.02} />
+                      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={ct.colors.series[2]} stopOpacity={ct.areaOpacity.top} />
+                        <stop offset="100%" stopColor={ct.colors.series[2]} stopOpacity={ct.areaOpacity.bottom} />
                       </linearGradient>
                     </defs>
-                    <CartesianGrid {...hlGridStyle} vertical={false} />
-                    <XAxis dataKey="name" tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <YAxis tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <Tooltip {...hlTooltipStyle} />
+                    <CartesianGrid {...ct.grid} vertical={false} />
+                    <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
+                    <YAxis tick={ct.axis} axisLine={false} tickLine={false} />
+                    <Tooltip {...ct.tooltip} />
                     <Area
-                      type="monotone" dataKey="온도" stroke={hlColors.series[2]}
-                      strokeWidth={2} fill="url(#hlAreaGrad)"
-                      dot={{ r: 3, fill: hlColors.series[2], stroke: '#fff', strokeWidth: 2 }}
+                      type="monotone" dataKey="온도" stroke={ct.colors.series[2]}
+                      strokeWidth={2} fill={`url(#${gradId})`}
+                      dot={{ r: 3, fill: ct.colors.series[2], stroke: ct.dotStroke, strokeWidth: 2 }}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -199,24 +202,23 @@ export default function DataViz() {
                           <Cell key={i} fill={donutColors[i]} />
                         ))}
                       </Pie>
-                      <Tooltip {...hlTooltipStyle} />
+                      <Tooltip {...ct.tooltip} />
                     </PieChart>
                   </ResponsiveContainer>
-                  {/* 중앙 텍스트 */}
                   <div style={{
                     position: 'absolute', top: '50%', left: '50%',
                     transform: 'translate(-50%, -50%)', textAlign: 'center', pointerEvents: 'none',
                   }}>
-                    <div style={{ fontSize: 22, fontWeight: 700, color: '#181b22', lineHeight: 1 }}>48</div>
-                    <div style={{ fontSize: 11, color: '#9da3ad', marginTop: 2 }}>총 장비</div>
+                    <div style={{ fontSize: 22, fontWeight: 700, color: ct.text.primary, lineHeight: 1 }}>48</div>
+                    <div style={{ fontSize: 11, color: ct.text.muted, marginTop: 2 }}>총 장비</div>
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {donutData.map((d, i) => (
                     <div key={d.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
                       <span style={{ width: 10, height: 10, borderRadius: '50%', background: donutColors[i], flexShrink: 0 }} />
-                      <span style={{ color: '#555c68' }}>{d.name}</span>
-                      <span style={{ fontFamily: 'Geist Mono, monospace', fontWeight: 600, marginLeft: 'auto', paddingLeft: 20 }}>
+                      <span style={{ color: ct.text.secondary }}>{d.name}</span>
+                      <span style={{ fontFamily: 'Geist Mono, monospace', fontWeight: 600, marginLeft: 'auto', paddingLeft: 20, color: ct.text.primary }}>
                         {d.value}대
                       </span>
                     </div>
@@ -243,14 +245,14 @@ export default function DataViz() {
               <div className="hl-card__body">
                 <ResponsiveContainer width="100%" height={240}>
                   <LineChart data={multiLineData} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>
-                    <CartesianGrid {...hlGridStyle} vertical={false} />
-                    <XAxis dataKey="name" tick={hlAxisStyle} axisLine={false} tickLine={false} />
-                    <YAxis tick={hlAxisStyle} axisLine={false} tickLine={false} domain={[60, 100]} />
-                    <Tooltip {...hlTooltipStyle} />
-                    <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Pretendard Variable, Geist, sans-serif' }} />
-                    <Line type="monotone" dataKey="A라인" stroke={hlColors.series[0]} strokeWidth={2} dot={{ r: 3 }} />
-                    <Line type="monotone" dataKey="B라인" stroke={hlColors.series[1]} strokeWidth={2} dot={{ r: 3 }} />
-                    <Line type="monotone" dataKey="C라인" stroke={hlColors.series[2]} strokeWidth={2} dot={{ r: 3 }} />
+                    <CartesianGrid {...ct.grid} vertical={false} />
+                    <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
+                    <YAxis tick={ct.axis} axisLine={false} tickLine={false} domain={[60, 100]} />
+                    <Tooltip {...ct.tooltip} />
+                    <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Pretendard Variable, Geist, sans-serif', color: ct.text.secondary }} />
+                    <Line type="monotone" dataKey="A라인" stroke={ct.colors.series[0]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[0] }} />
+                    <Line type="monotone" dataKey="B라인" stroke={ct.colors.series[1]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[1] }} />
+                    <Line type="monotone" dataKey="C라인" stroke={ct.colors.series[2]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[2] }} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -269,16 +271,26 @@ export default function DataViz() {
             <div className="doc-color-swatch" style={{ backgroundColor: '#00729a', color: '#fff' }}><b>S2</b>700</div>
             <div className="doc-color-swatch" style={{ backgroundColor: '#00B4ED', color: '#002B68' }}><b>S3</b>500</div>
             <div className="doc-color-swatch" style={{ backgroundColor: '#6bc5ea', color: '#002B68' }}><b>S4</b>300</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#a8ddf3', color: '#005474' }}><b>S5</b>200</div>
+          </div>
+          <div className="doc-sub-title" style={{ marginTop: 12 }}>다크 모드 시리즈 — 밝은 톤 우선</div>
+          <div className="doc-color-row">
+            <div className="doc-color-swatch" style={{ backgroundColor: '#6bc5ea', color: '#002B68' }}><b>S1</b>300</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#00B4ED', color: '#002B68' }}><b>S2</b>500</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#a8ddf3', color: '#002B68' }}><b>S3</b>200</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#00729a', color: '#fff' }}><b>S4</b>700</div>
             <div className="doc-color-swatch" style={{ backgroundColor: '#d5eef9', color: '#005474' }}><b>S5</b>100</div>
           </div>
         </div>
         <div className="doc-sub">
           <div className="doc-sub-title">상태 차트 — 시맨틱 색상</div>
           <div className="doc-color-row">
-            <div className="doc-color-swatch" style={{ backgroundColor: '#18864b', color: '#fff' }}><b>정상</b>success</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#b88b17', color: '#fff' }}><b>경고</b>warning</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#c9302c', color: '#fff' }}><b>에러</b>error</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#9da3ad', color: '#fff' }}><b>대기</b>gray</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#18864b', color: '#fff' }}><b>정상</b>Light</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#3dd68c', color: '#0a0f1a' }}><b>정상</b>Dark</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#b88b17', color: '#fff' }}><b>경고</b>Light</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#f0c541', color: '#0a0f1a' }}><b>경고</b>Dark</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#c9302c', color: '#fff' }}><b>에러</b>Light</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#f87171', color: '#0a0f1a' }}><b>에러</b>Dark</div>
           </div>
         </div>
       </div>
@@ -286,19 +298,26 @@ export default function DataViz() {
       {/* ===== 8. 테마 프리셋 사용법 ===== */}
       <div className="doc-section">
         <div className="doc-section-title">HL 테마 프리셋 사용법</div>
-        <div className="doc-section-desc">chartTheme.js를 import하면 HL 디자인 시스템과 일관된 차트를 만들 수 있습니다.</div>
+        <div className="doc-section-desc">useChartTheme() 훅으로 다크 모드 자동 대응됩니다.</div>
         <div className="hl-card">
-          <div className="hl-card__head">chartTheme.js</div>
-          <div className="hl-card__body" style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, lineHeight: 1.7, whiteSpace: 'pre', overflowX: 'auto', color: '#555c68' }}>
-{`import { hlColors, hlAxisStyle, hlGridStyle, hlTooltipStyle } from './chartTheme';
+          <div className="hl-card__head">chartTheme.js 사용 예시</div>
+          <div className="hl-card__body" style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, lineHeight: 1.7, whiteSpace: 'pre', overflowX: 'auto', color: ct.text.secondary }}>
+{`import { useChartTheme } from './chartTheme';
 
-<BarChart data={data}>
-  <CartesianGrid {...hlGridStyle} vertical={false} />
-  <XAxis tick={hlAxisStyle} axisLine={false} tickLine={false} />
-  <YAxis tick={hlAxisStyle} axisLine={false} tickLine={false} />
-  <Tooltip {...hlTooltipStyle} />
-  <Bar dataKey="value" fill={hlColors.series[2]} radius={[4,4,0,0]} />
-</BarChart>`}
+function MyChart({ data }) {
+  const ct = useChartTheme();
+
+  return (
+    <BarChart data={data}>
+      <CartesianGrid {...ct.grid} vertical={false} />
+      <XAxis tick={ct.axis} axisLine={false} tickLine={false} />
+      <YAxis tick={ct.axis} axisLine={false} tickLine={false} />
+      <Tooltip {...ct.tooltip} />
+      <Bar dataKey="value" fill={ct.colors.series[2]}
+           radius={[4,4,0,0]} />
+    </BarChart>
+  );
+}`}
           </div>
         </div>
       </div>
@@ -340,14 +359,14 @@ export default function DataViz() {
             <div className="doc-guideline__bar doc-guideline__bar--do" />
             <div className="doc-guideline__body">
               <div className="doc-guideline__label doc-guideline__label--do">Do</div>
-              <div className="doc-guideline__text">Primary 팔레트의 명도로 시리즈를 구분하세요 (900→100). Recharts에서 hlColors.series 배열을 사용합니다.</div>
+              <div className="doc-guideline__text">useChartTheme() 훅을 사용하세요. 다크 모드에서 시리즈 색상, 축, 그리드, 툴팁이 자동 전환됩니다.</div>
             </div>
           </div>
           <div className="doc-guideline">
             <div className="doc-guideline__bar doc-guideline__bar--dont" />
             <div className="doc-guideline__body">
               <div className="doc-guideline__label doc-guideline__label--dont">Don&apos;t</div>
-              <div className="doc-guideline__text">무지개 색상을 사용하지 마세요. 시맨틱 색상과 충돌하고 접근성이 떨어집니다.</div>
+              <div className="doc-guideline__text">차트에 색상을 하드코딩하지 마세요. 다크 모드에서 보이지 않게 됩니다.</div>
             </div>
           </div>
         </div>

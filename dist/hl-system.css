@@ -32,20 +32,20 @@
   --hl-primary-800: #005474;
   --hl-primary-900: #002B68;
 
-  /* --- Neutral --- */
+  /* --- Neutral (레이어 구분 강화) --- */
   --hl-gray-0:   #ffffff;
-  --hl-gray-50:  #f7f8fa;
-  --hl-gray-100: #f0f1f4;
-  --hl-gray-150: #e8eaee;
-  --hl-gray-200: #dcdfe4;
-  --hl-gray-300: #c4c8cf;
-  --hl-gray-400: #9da3ad;
-  --hl-gray-500: #6e7582;
-  --hl-gray-600: #555c68;
-  --hl-gray-700: #3d434e;
-  --hl-gray-800: #282d36;
-  --hl-gray-900: #181b22;
-  --hl-gray-950: #0e1016;
+  --hl-gray-50:  #f5f6f8;
+  --hl-gray-100: #eaecf0;
+  --hl-gray-150: #dfe1e6;
+  --hl-gray-200: #d2d5db;
+  --hl-gray-300: #b3b8c2;
+  --hl-gray-400: #8b919e;
+  --hl-gray-500: #6b7280;
+  --hl-gray-600: #4b5563;
+  --hl-gray-700: #374151;
+  --hl-gray-800: #1f2937;
+  --hl-gray-900: #111827;
+  --hl-gray-950: #0a0f1a;
 
   /* --- Accent --- */
   --hl-gold:       #C09A5D;
@@ -61,23 +61,40 @@
   --hl-info:        #0095c8;
   --hl-info-light:  #eef8fc;
 
-  /* --- Surface (Light) --- */
-  --hl-bg:             var(--hl-gray-50);
-  --hl-surface:        var(--hl-gray-0);
-  --hl-surface-alt:    var(--hl-gray-100);
+  /* --- Surface & Background (Light) ---
+   *
+   *  Depth 계층도 (밝은순):
+   *
+   *    L=100  surface         #ffffff    카드 본체
+   *    L=96   surface-raised  #f0f1f4    카드 내 구분 (테이블 헤더, hover)
+   *    L=89   surface-sunken  #dce0e6    카드 내 움푹 영역 (데모 프리뷰, 코드블록, well)
+   *    L=93   bg              #eaebef    페이지 배경
+   *    L=82   border          #cfd3da    일반 구분선
+   *    L=72   border-strong   #adb3bf    강조 구분선
+   *
+   *  surface-sunken은 surface 내부에서만 쓰임 → bg와 비슷한 명도지만 역할이 다름
+   */
+  --hl-surface:        #ffffff;
+  --hl-surface-raised: #f0f1f4;
+  --hl-surface-sunken: #dce0e6;
+  --hl-bg:             #eaebef;
+  --hl-border:         #cfd3da;
+  --hl-border-strong:  #adb3bf;
+  --hl-border-focus:   var(--hl-primary-500);
   --hl-overlay:        rgba(0,0,0,0.45);
 
-  /* --- Text --- */
-  --hl-text:           var(--hl-gray-900);
-  --hl-text-secondary: var(--hl-gray-600);
-  --hl-text-muted:     var(--hl-gray-500);
-  --hl-text-inverse:   var(--hl-gray-0);
-  --hl-text-link:      var(--hl-primary-600);
-
-  /* --- Border --- */
-  --hl-border:         var(--hl-gray-200);
-  --hl-border-strong:  var(--hl-gray-300);
-  --hl-border-focus:   var(--hl-primary-500);
+  /* --- Text (Light) ---
+   *    L=10   text            #111827    본문
+   *    L=35   text-secondary  #4b5563    라벨, 설명
+   *    L=57   text-muted      #838c9a    힌트, 타임스탬프
+   *    L=72   text-disabled   #adb3bf    비활성
+   */
+  --hl-text:           #111827;
+  --hl-text-secondary: #4b5563;
+  --hl-text-muted:     #838c9a;
+  --hl-text-disabled:  #adb3bf;
+  --hl-text-inverse:   #ffffff;
+  --hl-text-link:      var(--hl-primary-700);
 
   /* --- Typography --- */
   --hl-font:  'Pretendard Variable', 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -135,50 +152,68 @@
      <html>                    → 시스템 설정 따름
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
+  /* --- Dark Mode Depth ---
+   *
+   *    L=7    bg              #0d1117    페이지 배경
+   *    L=12   surface         #161b22    카드, 패널
+   *    L=17   surface-raised  #1e2530    테이블 헤더, hover
+   *    L=9    surface-sunken  #0f1318    카드 내 움푹 영역
+   *    L=24   border          #30363d    일반 구분선
+   *    L=32   border-strong   #484f58    강조 구분선
+   *
+   *    L=91   text            #e6edf3    본문
+   *    L=64   text-secondary  #8b949e    라벨
+   *    L=43   text-muted      #5a6370    힌트
+   *    L=30   text-disabled   #3d4550    비활성
+   */
   :root:not([data-theme="light"]) {
-    --hl-bg:           var(--hl-gray-950);
-    --hl-surface:      var(--hl-gray-900);
-    --hl-surface-alt:  var(--hl-gray-800);
-    --hl-overlay:      rgba(0,0,0,0.65);
-    --hl-text:         var(--hl-gray-100);
-    --hl-text-secondary:var(--hl-gray-400);
-    --hl-text-muted:   var(--hl-gray-500);
-    --hl-text-inverse: var(--hl-gray-900);
-    --hl-text-link:    var(--hl-primary-300);
-    --hl-border:       var(--hl-gray-700);
-    --hl-border-strong:var(--hl-gray-600);
-    --hl-border-focus: var(--hl-primary-400);
-    --hl-success-light:#0f2a1b;
-    --hl-warning-light:#2a2410;
-    --hl-error-light:  #2a1010;
-    --hl-info-light:   #0c2030;
-    --hl-shadow-1: 0 1px 3px rgba(0,0,0,.3);
-    --hl-shadow-2: 0 2px 8px rgba(0,0,0,.3);
-    --hl-shadow-3: 0 8px 24px rgba(0,0,0,.35);
-    --hl-shadow-4: 0 16px 48px rgba(0,0,0,.4);
+    --hl-bg:             #0d1117;
+    --hl-surface:        #161b22;
+    --hl-surface-raised: #1e2530;
+    --hl-surface-sunken: #1c2129;
+    --hl-border:         #30363d;
+    --hl-border-strong:  #484f58;
+    --hl-border-focus:   var(--hl-primary-400);
+    --hl-overlay:        rgba(0,0,0,0.65);
+    --hl-text:           #e6edf3;
+    --hl-text-secondary: #8b949e;
+    --hl-text-muted:     #5a6370;
+    --hl-text-disabled:  #3d4550;
+    --hl-text-inverse:   #111827;
+    --hl-text-link:      var(--hl-primary-300);
+    --hl-success-light:  #0f2a1b;
+    --hl-warning-light:  #2a2410;
+    --hl-error-light:    #2a1010;
+    --hl-info-light:     #0c2030;
+    --hl-shadow-1: 0 1px 3px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.03);
+    --hl-shadow-2: 0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.03);
+    --hl-shadow-3: 0 8px 24px rgba(0,0,0,.45);
+    --hl-shadow-4: 0 16px 48px rgba(0,0,0,.5);
   }
 }
 [data-theme="dark"] {
-  --hl-bg:           var(--hl-gray-950);
-  --hl-surface:      var(--hl-gray-900);
-  --hl-surface-alt:  var(--hl-gray-800);
-  --hl-overlay:      rgba(0,0,0,0.65);
-  --hl-text:         var(--hl-gray-100);
-  --hl-text-secondary:var(--hl-gray-400);
-  --hl-text-muted:   var(--hl-gray-500);
-  --hl-text-inverse: var(--hl-gray-900);
-  --hl-text-link:    var(--hl-primary-300);
-  --hl-border:       var(--hl-gray-700);
-  --hl-border-strong:var(--hl-gray-600);
-  --hl-border-focus: var(--hl-primary-400);
-  --hl-success-light:#0f2a1b;
-  --hl-warning-light:#2a2410;
-  --hl-error-light:  #2a1010;
-  --hl-info-light:   #0c2030;
-  --hl-shadow-1: 0 1px 3px rgba(0,0,0,.3);
-  --hl-shadow-2: 0 2px 8px rgba(0,0,0,.3);
-  --hl-shadow-3: 0 8px 24px rgba(0,0,0,.35);
-  --hl-shadow-4: 0 16px 48px rgba(0,0,0,.4);
+  --hl-bg:             #0d1117;
+  --hl-surface:        #161b22;
+  --hl-surface-raised: #1e2530;
+  --hl-surface-sunken: #1c2129;
+  --hl-border:         #30363d;
+  --hl-border-strong:  #484f58;
+  --hl-border-focus:   var(--hl-primary-400);
+  --hl-overlay:        rgba(0,0,0,0.65);
+  --hl-text:           #e6edf3;
+  --hl-text-secondary: #8b949e;
+  --hl-text-muted:     #5a6370;
+  --hl-text-disabled:  #3d4550;
+  --hl-text-inverse:   #111827;
+  --hl-text-link:      var(--hl-primary-300);
+  --hl-success-light:  #0f2a1b;
+  --hl-warning-light:  #2a2410;
+  --hl-error-light:    #2a1010;
+  --hl-info-light:     #0c2030;
+  --hl-shadow-1: 0 1px 3px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.03);
+  --hl-shadow-2: 0 3px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.03);
+  --hl-shadow-3: 0 8px 24px rgba(0,0,0,.45);
+  --hl-shadow-4: 0 16px 48px rgba(0,0,0,.5);
 }
 
 /* ==========================================================================
@@ -244,17 +279,19 @@ code,pre { font-family: var(--hl-mono); }
 .hl-sidebar__link {
   display: flex; align-items: center; gap: var(--hl-sp-2);
   padding: 6px var(--hl-sp-5);
-  font-size: var(--hl-text-sm); color: var(--hl-text-secondary);
-  text-decoration: none;
+  font-size: var(--hl-text-sm); color: var(--hl-text);
+  text-decoration: none; opacity: 0.72;
   transition: color var(--hl-dur) var(--hl-ease),
-              background var(--hl-dur) var(--hl-ease);
+              background var(--hl-dur) var(--hl-ease),
+              opacity var(--hl-dur) var(--hl-ease);
 }
 .hl-sidebar__link:hover {
-  color: var(--hl-text); background: var(--hl-surface-alt);
+  color: var(--hl-text); opacity: 1;
+  background: var(--hl-surface-raised);
   text-decoration: none;
 }
 .hl-sidebar__link.is-active {
-  color: var(--hl-primary-600);
+  color: var(--hl-primary-600); opacity: 1;
   background: var(--hl-primary-50);
   font-weight: 500;
   border-left: 2px solid var(--hl-primary-500);
@@ -324,7 +361,7 @@ code,pre { font-family: var(--hl-mono); }
   box-shadow: 0 1px 2px rgba(0,0,0,.04);
 }
 .hl-btn--secondary:hover {
-  background: var(--hl-surface-alt); border-color: var(--hl-border-strong);
+  background: var(--hl-surface-raised); border-color: var(--hl-border-strong);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0,0,0,.06);
 }
@@ -332,7 +369,7 @@ code,pre { font-family: var(--hl-mono); }
 .hl-btn--ghost {
   background: transparent; color: var(--hl-text-secondary);
 }
-.hl-btn--ghost:hover { background: var(--hl-surface-alt); color: var(--hl-text); }
+.hl-btn--ghost:hover { background: var(--hl-surface-raised); color: var(--hl-text); }
 
 .hl-btn--danger {
   background: var(--hl-error); color: var(--hl-text-inverse);
@@ -460,6 +497,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-table {
   width: 100%; border-collapse: collapse;
   font-size: var(--hl-text-sm);
+  background: var(--hl-surface);
 }
 .hl-table th,
 .hl-table td {
@@ -469,9 +507,9 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 }
 .hl-table th {
   font-size: var(--hl-text-xs); font-weight: 600;
-  color: var(--hl-text-muted);
+  color: var(--hl-text-secondary);
   text-transform: uppercase; letter-spacing: 0.04em;
-  background: var(--hl-surface-alt);
+  background: var(--hl-surface-raised);
 }
 .hl-table td { color: var(--hl-text); }
 
@@ -720,7 +758,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-text-warning { color: var(--hl-warning); }
 .hl-text-error   { color: var(--hl-error); }
 
-.hl-flex   { display: flex; }
+.hl-flex   { display: flex; flex-wrap: wrap; }
 .hl-gap-2  { gap: var(--hl-sp-2); }
 .hl-gap-3  { gap: var(--hl-sp-3); }
 .hl-gap-4  { gap: var(--hl-sp-4); }
@@ -883,7 +921,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   border: 1px solid var(--hl-border); border-radius: var(--hl-radius-sm);
   cursor: pointer; transition: all var(--hl-dur) var(--hl-ease);
 }
-.hl-pagination__btn:hover { background: var(--hl-surface-alt); color: var(--hl-text); }
+.hl-pagination__btn:hover { background: var(--hl-surface-raised); color: var(--hl-text); }
 .hl-pagination__btn.is-active {
   background: var(--hl-primary-600); color: var(--hl-text-inverse);
   border-color: var(--hl-primary-600);
@@ -895,7 +933,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
    25. PROGRESS & SPINNER
    ========================================================================== */
 .hl-progress {
-  width: 100%; height: 6px; background: var(--hl-surface-alt);
+  width: 100%; height: 6px; background: var(--hl-surface-raised);
   border-radius: var(--hl-radius-full); overflow: hidden;
 }
 .hl-progress__bar {
@@ -934,7 +972,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
    ========================================================================== */
 .hl-avatar {
   display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 50%; background: var(--hl-surface-alt);
+  border-radius: 50%; background: var(--hl-surface-raised);
   color: var(--hl-text-secondary); font-weight: 600;
   flex-shrink: 0; overflow: hidden;
 }
@@ -948,15 +986,20 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
    ========================================================================== */
 .hl-dropdown { position: relative; display: inline-flex; }
 .hl-dropdown__menu {
-  position: absolute; top: calc(100% + 4px); right: 0;
+  position: absolute; top: calc(100% + 4px); left: 0;
   min-width: 160px; padding: var(--hl-sp-1) 0;
   background: var(--hl-surface); border: 1px solid var(--hl-border);
   border-radius: var(--hl-radius); box-shadow: var(--hl-shadow-3);
   z-index: 50;
 }
 /* 데모용: static 배치 */
+/* 데모용: absolute 해제, 버튼 아래 세로 배치 */
+.hl-dropdown:has(.hl-dropdown__menu--static) {
+  flex-direction: column; align-items: flex-start;
+}
 .hl-dropdown__menu--static {
-  position: relative; top: auto; right: auto; margin-top: 4px;
+  position: relative; top: auto; left: auto; right: auto;
+  margin-top: 4px;
 }
 .hl-dropdown__item {
   display: flex; align-items: center; gap: var(--hl-sp-2);
@@ -966,7 +1009,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   border: none; background: transparent; width: 100%; text-align: left;
   font-family: var(--hl-font);
 }
-.hl-dropdown__item:hover { background: var(--hl-surface-alt); }
+.hl-dropdown__item:hover { background: var(--hl-surface-raised); }
 .hl-dropdown__item--danger { color: var(--hl-error); }
 .hl-dropdown__divider { height: 1px; background: var(--hl-border); margin: var(--hl-sp-1) 0; }
 
@@ -986,7 +1029,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   margin-left: auto; flex-shrink: 0;
 }
 .hl-dropdown__submenu {
-  position: absolute; left: calc(100% + 2px); top: -4px;
+  position: absolute; left: calc(100% + 2px); top: 0;
   min-width: 140px; padding: var(--hl-sp-1) 0;
   background: var(--hl-surface); border: 1px solid var(--hl-border);
   border-radius: var(--hl-radius); box-shadow: var(--hl-shadow-3);
@@ -997,18 +1040,16 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-dropdown__sub:hover > .hl-dropdown__submenu {
   opacity: 1; pointer-events: auto;
 }
-/* 데모용: static 배치 */
+/* 데모용: 위치 유지하면서 항상 표시 */
 .hl-dropdown__submenu--static {
-  position: relative; left: auto; top: auto;
   opacity: 1; pointer-events: auto;
-  margin-left: var(--hl-sp-3); margin-top: var(--hl-sp-1);
 }
 
 /* ==========================================================================
    29. SKELETON
    ========================================================================== */
 .hl-skeleton {
-  background: var(--hl-surface-alt);
+  background: var(--hl-border);
   border-radius: var(--hl-radius-sm);
   animation: hl-pulse 1.5s ease-in-out infinite;
 }
@@ -1036,7 +1077,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 
 .hl-table tr.is-expandable { cursor: pointer; }
 .hl-table .expand-row td {
-  padding: 0 var(--hl-sp-3); background: var(--hl-surface-alt);
+  padding: 0 var(--hl-sp-3); background: var(--hl-surface-raised);
   border-bottom: 1px solid var(--hl-border);
 }
 .hl-table .expand-content { padding: var(--hl-sp-3) 0; font-size: var(--hl-text-sm); }

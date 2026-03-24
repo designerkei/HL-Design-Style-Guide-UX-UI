@@ -92,7 +92,7 @@ export default function DropdownPage() {
             <span className="doc-demo__title">Submenu</span>
             <span className="doc-demo__tag">hl-dropdown__sub</span>
           </div>
-          <div className="doc-demo__preview" style={{ minHeight: 260, alignItems: 'flex-start' }}>
+          <div className="doc-demo__preview" style={{ minHeight: 260, alignItems: 'flex-start', paddingRight: 240 }}>
             <div className="hl-dropdown">
               <button className="hl-btn hl-btn--secondary hl-btn--sm">
                 <i className="icon-settings" /> 설정

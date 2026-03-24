@@ -19,12 +19,12 @@ export default function InputPage() {
             <span className="doc-demo__title">Text Input</span>
             <span className="doc-demo__tag">hl-input</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 400 }}>
-            <div className="hl-field">
+          <div className="doc-demo__preview doc-demo__preview--col">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">장비 이름</label>
               <input className="hl-input" type="text" placeholder="장비명을 입력하세요" />
             </div>
-            <div className="hl-field">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">장비 코드</label>
               <input className="hl-input" type="text" placeholder="예: EQ-001" />
             </div>
@@ -37,8 +37,8 @@ export default function InputPage() {
             <span className="doc-demo__title">Select</span>
             <span className="doc-demo__tag">select.hl-input</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 400 }}>
-            <div className="hl-field">
+          <div className="doc-demo__preview doc-demo__preview--col">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">장비 유형</label>
               <select className="hl-input">
                 <option value="">선택하세요</option>
@@ -57,8 +57,8 @@ export default function InputPage() {
             <span className="doc-demo__title">Error State</span>
             <span className="doc-demo__tag">hl-input--error</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 400 }}>
-            <div className="hl-field">
+          <div className="doc-demo__preview doc-demo__preview--col">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">이메일</label>
               <input
                 className="hl-input hl-input--error"
@@ -67,7 +67,7 @@ export default function InputPage() {
               />
               <span className="hl-field-error">올바른 이메일 형식을 입력하세요.</span>
             </div>
-            <div className="hl-field">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">장비 코드</label>
               <input
                 className="hl-input hl-input--error"
@@ -86,8 +86,8 @@ export default function InputPage() {
             <span className="doc-demo__title">Disabled</span>
             <span className="doc-demo__tag">disabled attribute</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 400 }}>
-            <div className="hl-field">
+          <div className="doc-demo__preview doc-demo__preview--col">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">읽기 전용 필드</label>
               <input
                 className="hl-input"
@@ -97,7 +97,7 @@ export default function InputPage() {
                 style={{ opacity: 0.5, cursor: 'not-allowed' }}
               />
             </div>
-            <div className="hl-field">
+            <div className="hl-field" style={{ maxWidth: 400 }}>
               <label className="hl-label">비활성 셀렉트</label>
               <select className="hl-input" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
                 <option>크레인</option>

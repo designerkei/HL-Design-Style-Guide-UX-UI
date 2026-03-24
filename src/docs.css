@@ -46,11 +46,11 @@
 .doc-demo__title { font-size: var(--hl-text-sm); font-weight: 600; color: var(--hl-text); }
 .doc-demo__tag {
   font-size: 10px; font-family: var(--hl-mono); color: var(--hl-text-muted);
-  background: var(--hl-surface-alt); padding: 2px 8px; border-radius: var(--hl-radius-full);
+  background: var(--hl-surface-raised); padding: 2px 8px; border-radius: var(--hl-radius-full);
 }
 .doc-demo__preview {
-  padding: var(--hl-sp-8) var(--hl-sp-6);
-  background: var(--hl-bg);
+  padding: var(--hl-sp-5) var(--hl-sp-5);
+  background: var(--hl-surface-sunken);
   border-top: 1px solid var(--hl-border);
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--hl-sp-3);
 }
@@ -123,22 +123,23 @@
 }
 
 /* ===== Token Table ===== */
-.doc-token-table { width: 100%; border-collapse: collapse; font-size: var(--hl-text-sm); table-layout: auto; }
+.doc-token-table { width: 100%; border-collapse: collapse; font-size: var(--hl-text-sm); table-layout: auto; background: var(--hl-surface); border-radius: var(--hl-radius); overflow: hidden; box-shadow: var(--hl-shadow-1); }
 .doc-token-table th,
 .doc-token-table td { white-space: nowrap; width: 1%; }
 .doc-token-table th:last-child,
 .doc-token-table td:last-child { width: auto; white-space: normal; }
 .doc-token-table th {
   padding: var(--hl-sp-2) var(--hl-sp-3); text-align: left;
-  font-size: 11px; font-weight: 600; color: var(--hl-text-muted);
+  font-size: 11px; font-weight: 600; color: var(--hl-text-secondary);
   text-transform: uppercase; letter-spacing: 0.04em;
   border-bottom: 2px solid var(--hl-border);
+  background: var(--hl-surface-raised);
 }
 .doc-token-table td {
   padding: 6px var(--hl-sp-3); border-bottom: 1px solid var(--hl-border);
   vertical-align: middle;
 }
-.doc-token-table tbody tr:hover { background: var(--hl-surface-alt); }
+.doc-token-table tbody tr:hover { background: var(--hl-surface-raised); }
 .doc-token-name { font-family: var(--hl-mono); font-size: 12px; color: var(--hl-primary-700); font-weight: 500; }
 .doc-token-val  { font-family: var(--hl-mono); font-size: 12px; color: var(--hl-text-secondary); }
 .doc-token-swatch {
@@ -196,7 +197,7 @@
 }
 .doc-principle__icon {
   width: 36px; height: 36px; border-radius: var(--hl-radius);
-  background: var(--hl-surface-alt);
+  background: var(--hl-surface-raised);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; font-size: 16px; color: var(--hl-primary-700);
 }
@@ -218,7 +219,7 @@
 .doc-theme-btn {
   height: 28px; padding: 0 var(--hl-sp-3);
   font-family: var(--hl-font); font-size: var(--hl-text-xs); font-weight: 500;
-  color: var(--hl-text-secondary); background: var(--hl-surface-alt);
+  color: var(--hl-text-secondary); background: var(--hl-surface-raised);
   border: 1px solid var(--hl-border); border-radius: var(--hl-radius-full);
   cursor: pointer; display: inline-flex; align-items: center; gap: var(--hl-sp-1);
 }

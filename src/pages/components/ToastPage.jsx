@@ -19,9 +19,9 @@ export default function ToastPage() {
             <span className="doc-demo__title">Variants</span>
             <span className="doc-demo__tag">hl-toast--*</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 480 }}>
+          <div className="doc-demo__preview doc-demo__preview--col">
             {/* Info */}
-            <div className="hl-toast hl-toast--info" style={{ width: '100%' }}>
+            <div className="hl-toast hl-toast--info" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-info" /></span>
               <div>
                 <div className="hl-toast__title">시스템 업데이트 안내</div>
@@ -30,7 +30,7 @@ export default function ToastPage() {
             </div>
 
             {/* Success */}
-            <div className="hl-toast hl-toast--success" style={{ width: '100%' }}>
+            <div className="hl-toast hl-toast--success" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-circle-check" /></span>
               <div>
                 <div className="hl-toast__title">저장 완료</div>
@@ -39,7 +39,7 @@ export default function ToastPage() {
             </div>
 
             {/* Warning */}
-            <div className="hl-toast hl-toast--warning" style={{ width: '100%' }}>
+            <div className="hl-toast hl-toast--warning" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-triangle-alert" /></span>
               <div>
                 <div className="hl-toast__title">점검 일정 임박</div>
@@ -48,7 +48,7 @@ export default function ToastPage() {
             </div>
 
             {/* Error */}
-            <div className="hl-toast hl-toast--error" style={{ width: '100%' }}>
+            <div className="hl-toast hl-toast--error" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-circle-x" /></span>
               <div>
                 <div className="hl-toast__title">저장 실패</div>
@@ -64,14 +64,14 @@ export default function ToastPage() {
             <span className="doc-demo__title">Title Only (간략 알림)</span>
             <span className="doc-demo__tag">Compact</span>
           </div>
-          <div className="doc-demo__preview doc-demo__preview--col" style={{ maxWidth: 400 }}>
-            <div className="hl-toast hl-toast--success" style={{ width: '100%' }}>
+          <div className="doc-demo__preview doc-demo__preview--col">
+            <div className="hl-toast hl-toast--success" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-circle-check" /></span>
               <div>
                 <div className="hl-toast__title">복사되었습니다.</div>
               </div>
             </div>
-            <div className="hl-toast hl-toast--error" style={{ width: '100%' }}>
+            <div className="hl-toast hl-toast--error" style={{ maxWidth: 480 }}>
               <span className="hl-toast__icon"><i className="icon-circle-x" /></span>
               <div>
                 <div className="hl-toast__title">삭제에 실패했습니다.</div>
