@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Monitoring from './pages/Monitoring';
 import Cctv from './pages/Cctv';
 import DataViz from './pages/DataViz';
+import LayoutGuide from './pages/LayoutGuide';
 
 // Component detail pages
 import ButtonPage from './pages/components/ButtonPage';
@@ -61,6 +62,7 @@ export default function App() {
         <Route path="components/avatar" element={<AvatarPage />} />
         <Route path="components/dropdown" element={<DropdownPage />} />
         <Route path="components/skeleton" element={<SkeletonPage />} />
+        <Route path="guide/layout" element={<LayoutGuide />} />
         <Route path="guide/data-visualization" element={<DataViz />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="monitoring" element={<Monitoring />} />

@@ -97,7 +97,7 @@ export default function DataViz() {
                     <CartesianGrid {...ct.grid} vertical={false} />
                     <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
                     <YAxis tick={ct.axis} axisLine={false} tickLine={false} />
-                    <Tooltip {...ct.tooltip} />
+                    <Tooltip {...ct.tooltip} cursor={ct.cursor} />
                     <Bar dataKey="생산량" fill={ct.colors.series[2]} radius={[4, 4, 0, 0]} barSize={32} />
                   </BarChart>
                 </ResponsiveContainer>

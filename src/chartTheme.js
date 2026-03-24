@@ -61,6 +61,7 @@ export function useChartTheme() {
     },
 
     tooltip: {
+      isAnimationActive: false,
       contentStyle: {
         background: isDark ? '#161b22' : '#fff',
         border: `1px solid ${isDark ? '#30363d' : '#d2d5db'}`,
@@ -94,6 +95,9 @@ export function useChartTheme() {
 
     /* dot 스트로크 */
     dotStroke: isDark ? '#161b22' : '#fff',
+
+    /* Tooltip cursor (bar hover 배경 사각형) */
+    cursor: { fill: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.03)' },
   }), [isDark]);
 }
 

@@ -14,7 +14,12 @@
       "Bash(open http://localhost:5174)",
       "Bash(yes)",
       "WebFetch(domain:atlassian.design)",
-      "WebFetch(domain:fluent2.microsoft.design)"
+      "WebFetch(domain:fluent2.microsoft.design)",
+      "Read(//Users/goeunho/.ssh/**)",
+      "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_pigeon9989 -C \"pigeon9989\" -N \"\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }

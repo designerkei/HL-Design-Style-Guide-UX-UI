@@ -47,6 +47,7 @@ const nav = [
   {
     label: 'Guide',
     items: [
+      { to: '/guide/layout', icon: 'icon-layout', text: '페이지 레이아웃' },
       { to: '/guide/data-visualization', icon: 'icon-pie-chart', text: '데이터 시각화' },
     ],
   },

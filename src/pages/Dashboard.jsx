@@ -1,4 +1,21 @@
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+} from 'recharts';
+import { useChartTheme } from '../chartTheme';
+
+const chartData = [
+  { name: '월', 생산량: 1820 },
+  { name: '화', 생산량: 1650 },
+  { name: '수', 생산량: 1940 },
+  { name: '목', 생산량: 1750 },
+  { name: '금', 생산량: 1870 },
+  { name: '토', 생산량: 1420 },
+  { name: '일', 생산량: 1980 },
+];
+
 export default function Dashboard() {
+  const ct = useChartTheme();
+
   return (
     <div className="hl-container hl-stack">
 
@@ -22,36 +39,38 @@ export default function Dashboard() {
         <div className="hl-kpi">
           <span className="hl-kpi__label">총생산량</span>
           <span className="hl-kpi__value">12,345<span className="hl-kpi__unit">건</span></span>
-          <span className="hl-kpi__trend hl-kpi__trend--up"><i className="icon-trending-up"></i> ↑8.2%</span>
+          <span className="hl-kpi__trend hl-kpi__trend--up"><i className="icon-trending-up" /> +8.2%</span>
         </div>
         <div className="hl-kpi">
           <span className="hl-kpi__label">완료율</span>
           <span className="hl-kpi__value">94.7<span className="hl-kpi__unit">%</span></span>
-          <span className="hl-kpi__trend hl-kpi__trend--up"><i className="icon-trending-up"></i> ↑1.3%</span>
+          <span className="hl-kpi__trend hl-kpi__trend--up"><i className="icon-trending-up" /> +1.3%</span>
         </div>
         <div className="hl-kpi">
           <span className="hl-kpi__label">평균처리시간</span>
           <span className="hl-kpi__value">4.2<span className="hl-kpi__unit">시간</span></span>
-          <span className="hl-kpi__trend hl-kpi__trend--down"><i className="icon-trending-down"></i> ↑0.3</span>
+          <span className="hl-kpi__trend hl-kpi__trend--down"><i className="icon-trending-down" /> +0.3</span>
         </div>
         <div className="hl-kpi">
           <span className="hl-kpi__label">불량률</span>
           <span className="hl-kpi__value">2.1<span className="hl-kpi__unit">%</span></span>
-          <span className="hl-kpi__trend hl-kpi__trend--down"><i className="icon-trending-down"></i> ↑0.5%</span>
+          <span className="hl-kpi__trend hl-kpi__trend--down"><i className="icon-trending-down" /> +0.5%</span>
         </div>
       </div>
 
-      {/* 3. Chart */}
-      <div className="hl-chart">
-        <div className="hl-chart__head">일별 생산량 추이</div>
-        <div className="hl-chart__body">
-          <div className="hl-bar" style={{ height: '160px' }}><span className="hl-bar__label">월</span></div>
-          <div className="hl-bar" style={{ height: '130px' }}><span className="hl-bar__label">화</span></div>
-          <div className="hl-bar" style={{ height: '180px' }}><span className="hl-bar__label">수</span></div>
-          <div className="hl-bar" style={{ height: '150px' }}><span className="hl-bar__label">목</span></div>
-          <div className="hl-bar" style={{ height: '170px' }}><span className="hl-bar__label">금</span></div>
-          <div className="hl-bar" style={{ height: '120px' }}><span className="hl-bar__label">토</span></div>
-          <div className="hl-bar" style={{ height: '190px' }}><span className="hl-bar__label">일</span></div>
+      {/* 3. Chart — Recharts */}
+      <div className="hl-card">
+        <div className="hl-card__head">일별 생산량 추이</div>
+        <div className="hl-card__body">
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={chartData} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>
+              <CartesianGrid {...ct.grid} vertical={false} />
+              <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
+              <YAxis tick={ct.axis} axisLine={false} tickLine={false} />
+              <Tooltip {...ct.tooltip} cursor={ct.cursor} />
+              <Bar dataKey="생산량" fill={ct.colors.series[2]} radius={[4, 4, 0, 0]} barSize={36} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
