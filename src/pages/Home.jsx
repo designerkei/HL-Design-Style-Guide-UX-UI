@@ -14,7 +14,7 @@ export default function Home() {
       {/* 핵심 원칙 */}
       <div className="doc-section">
         <div className="doc-section-title">핵심 원칙</div>
-        <div className="doc-section-desc">모든 내부 운영 도구가 따라야 할 6가지 원칙입니다.</div>
+        <div className="doc-section-desc">모든 내부 운영 도구가 따라야 할 7가지 원칙입니다.</div>
         <div className="hl-grid hl-grid--2">
 
           <div className="doc-principle">
@@ -65,6 +65,14 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="doc-principle">
+            <div className="doc-principle__icon"><i className="icon-equal" /></div>
+            <div>
+              <div className="doc-principle__title">통일감 우선</div>
+              <div className="doc-principle__desc">10개의 서로 다른 도구를 열어도 같은 색상, 같은 구조, 같은 밀도가 되도록 하라.</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -112,19 +120,19 @@ export default function Home() {
         <div className="doc-section-title">레이아웃 패턴</div>
         <div className="doc-section-desc">모든 운영 화면은 아래 순서로 구성됩니다.</div>
         <div className="doc-layout-diagram">
-          <div className="doc-layout-row" style={{ backgroundColor: '#e8f0fe', color: '#1a56db' }}>
+          <div className="doc-layout-row" style={{ backgroundColor: 'var(--hl-info-light)', color: 'var(--hl-info)' }}>
             <i className="icon-filter" /> [1] Filter
             <span>검색 조건 및 필터 영역</span>
           </div>
-          <div className="doc-layout-row" style={{ backgroundColor: '#e8f5ee', color: '#18864b' }}>
+          <div className="doc-layout-row" style={{ backgroundColor: 'var(--hl-success-light)', color: 'var(--hl-success)' }}>
             <i className="icon-activity" /> [2] Summary
             <span>KPI 카드, 요약 지표</span>
           </div>
-          <div className="doc-layout-row" style={{ backgroundColor: 'var(--hl-surface-alt)', color: 'var(--hl-text-muted)' }}>
+          <div className="doc-layout-row" style={{ backgroundColor: 'var(--hl-surface-raised)', color: 'var(--hl-text-secondary)' }}>
             <i className="icon-layout" /> [3] Main View
             <span>차트, 테이블, 그리드</span>
           </div>
-          <div className="doc-layout-row" style={{ backgroundColor: '#eef8fc', color: '#0095c8' }}>
+          <div className="doc-layout-row" style={{ backgroundColor: 'var(--hl-primary-50)', color: 'var(--hl-primary-700)' }}>
             <i className="icon-table" /> [4] Detail / Table
             <span>상세 데이터 테이블</span>
           </div>

@@ -37,18 +37,18 @@ export default function Foundations() {
         <div className="doc-sub">
           <div className="doc-sub-title">Neutral</div>
           <div className="doc-color-row">
-            <div className="doc-color-swatch" style={{ backgroundColor: '#f7f8fa', color: '#282d36' }}><b>50</b>#f7f8fa</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#f0f1f4', color: '#282d36' }}><b>100</b>#f0f1f4</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#e8eaee', color: '#282d36' }}><b>150</b>#e8eaee</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#dcdfe4', color: '#282d36' }}><b>200</b>#dcdfe4</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#c4c8cf', color: '#282d36' }}><b>300</b>#c4c8cf</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#9da3ad', color: '#282d36' }}><b>400</b>#9da3ad</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#6e7582', color: '#fff' }}><b>500</b>#6e7582</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#555c68', color: '#fff' }}><b>600</b>#555c68</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#3d434e', color: '#fff' }}><b>700</b>#3d434e</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#282d36', color: '#fff' }}><b>800</b>#282d36</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#181b22', color: '#fff' }}><b>900</b>#181b22</div>
-            <div className="doc-color-swatch" style={{ backgroundColor: '#0e1016', color: '#fff' }}><b>950</b>#0e1016</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#f5f6f8', color: '#1f2937' }}><b>50</b>#f5f6f8</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#eaecf0', color: '#1f2937' }}><b>100</b>#eaecf0</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#dfe1e6', color: '#1f2937' }}><b>150</b>#dfe1e6</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#d2d5db', color: '#1f2937' }}><b>200</b>#d2d5db</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#b3b8c2', color: '#1f2937' }}><b>300</b>#b3b8c2</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#8b919e', color: '#1f2937' }}><b>400</b>#8b919e</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#6b7280', color: '#fff' }}><b>500</b>#6b7280</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#4b5563', color: '#fff' }}><b>600</b>#4b5563</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#374151', color: '#fff' }}><b>700</b>#374151</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#1f2937', color: '#fff' }}><b>800</b>#1f2937</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#111827', color: '#fff' }}><b>900</b>#111827</div>
+            <div className="doc-color-swatch" style={{ backgroundColor: '#0a0f1a', color: '#fff' }}><b>950</b>#0a0f1a</div>
           </div>
         </div>
 
@@ -130,6 +130,39 @@ export default function Foundations() {
                 <td>브랜드 / 강조</td>
                 <td>CTA 버튼, 활성 탭, 선택 항목</td>
               </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Surface Depth */}
+        <div className="doc-sub">
+          <div className="doc-sub-title">Surface Depth 계층</div>
+          <div className="doc-section-desc">UI의 깊이에 따라 배경색이 달라집니다. 각 단계는 최소 5% 명도 차이를 확보합니다.</div>
+          <table className="doc-token-table">
+            <thead><tr><th>토큰</th><th>Light</th><th>Dark</th><th>용도</th></tr></thead>
+            <tbody>
+              <tr><td className="doc-token-name">--hl-surface</td><td className="doc-token-val">#ffffff</td><td className="doc-token-val">#161b22</td><td>카드, 패널, 모달</td></tr>
+              <tr><td className="doc-token-name">--hl-surface-raised</td><td className="doc-token-val">#f0f1f4</td><td className="doc-token-val">#1e2530</td><td>테이블 헤더, hover 상태</td></tr>
+              <tr><td className="doc-token-name">--hl-surface-sunken</td><td className="doc-token-val">#dce0e6</td><td className="doc-token-val">#1c2129</td><td>프리뷰, 코드블록, well</td></tr>
+              <tr><td className="doc-token-name">--hl-bg</td><td className="doc-token-val">#eaebef</td><td className="doc-token-val">#0d1117</td><td>페이지 배경</td></tr>
+              <tr><td className="doc-token-name">--hl-border</td><td className="doc-token-val">#cfd3da</td><td className="doc-token-val">#30363d</td><td>일반 구분선</td></tr>
+              <tr><td className="doc-token-name">--hl-border-strong</td><td className="doc-token-val">#adb3bf</td><td className="doc-token-val">#484f58</td><td>강조 구분선</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* 텍스트 색상 */}
+        <div className="doc-sub">
+          <div className="doc-sub-title">텍스트 색상</div>
+          <table className="doc-token-table">
+            <thead><tr><th>토큰</th><th>Light</th><th>Dark</th><th>용도</th></tr></thead>
+            <tbody>
+              <tr><td className="doc-token-name">--hl-text</td><td className="doc-token-val">#111827</td><td className="doc-token-val">#e6edf3</td><td>본문 텍스트</td></tr>
+              <tr><td className="doc-token-name">--hl-text-secondary</td><td className="doc-token-val">#4b5563</td><td className="doc-token-val">#8b949e</td><td>라벨, 설명</td></tr>
+              <tr><td className="doc-token-name">--hl-text-muted</td><td className="doc-token-val">#838c9a</td><td className="doc-token-val">#5a6370</td><td>힌트, 타임스탬프</td></tr>
+              <tr><td className="doc-token-name">--hl-text-disabled</td><td className="doc-token-val">#adb3bf</td><td className="doc-token-val">#3d4550</td><td>비활성 텍스트</td></tr>
+              <tr><td className="doc-token-name">--hl-text-inverse</td><td className="doc-token-val">#ffffff</td><td className="doc-token-val">#111827</td><td>반전 배경 위 텍스트</td></tr>
+              <tr><td className="doc-token-name">--hl-text-link</td><td className="doc-token-val">primary-700</td><td className="doc-token-val">primary-300</td><td>링크</td></tr>
             </tbody>
           </table>
         </div>
