@@ -1,27 +1,28 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    HL Design System v1.0
    ==========================================================================
-   사내 운영 도구 UI 통일을 위한 패키징된 CSS 컴포넌트 라이브러리.
-   이 파일 하나만 import하면 전체 디자인 시스템이 적용됨.
+   ?щ궡 ?댁쁺 ?꾧뎄 UI ?듭씪???꾪븳 ?⑦궎吏뺣맂 CSS 而댄룷?뚰듃 ?쇱씠釉뚮윭由?
+   ???뚯씪 ?섎굹留?import?섎㈃ ?꾩껜 ?붿옄???쒖뒪?쒖씠 ?곸슜??
 
-   사용법:
+   ?ъ슜踰?
      <link rel="stylesheet" href="hl-system.css" />
 
-   참고: Carbon Design System, Material Design 3, Fluent Design System
+   李멸퀬: Carbon Design System, Material Design 3, Fluent Design System
    ========================================================================== */
 
 /* === Fonts === */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
 @import url('https://unpkg.com/lucide-static@0.473.0/font/lucide.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 
 /* ==========================================================================
    1. DESIGN TOKENS
    ========================================================================== */
 :root {
-  /* --- Primary (HL Sky Blue → HL Navy) ---
-   *   ⚠ design-tokens.css와 동기화됨. 값 변경 시 양쪽 모두 수정할 것.
+  /* --- Primary (HL Sky Blue ??HL Navy) ---
+   *   ??design-tokens.css? ?숆린?붾맖. 媛?蹂寃????묒そ 紐⑤몢 ?섏젙??寃?
    */
   --hl-primary-50:  #e8f7fd;
   --hl-primary-100: #c5ecfb;
@@ -34,7 +35,7 @@
   --hl-primary-800: #054d6e;
   --hl-primary-900: #002B68;
 
-  /* --- Neutral (레이어 구분 강화) --- */
+  /* --- Neutral (?덉씠??援щ텇 媛뺥솕) --- */
   --hl-gray-0:   #ffffff;
   --hl-gray-50:  #f5f6f8;
   --hl-gray-100: #eaecf0;
@@ -54,7 +55,7 @@
   --hl-silver:     #B2B2B2;
 
   /* --- Semantic ---
-   *   ⚠ design-tokens.css와 동기화됨. 값 변경 시 양쪽 모두 수정할 것.
+   *   ??design-tokens.css? ?숆린?붾맖. 媛?蹂寃????묒そ 紐⑤몢 ?섏젙??寃?
    */
   --hl-success:     #16a34a;
   --hl-success-light:#f0fdf4;
@@ -67,16 +68,16 @@
 
   /* --- Surface & Background (Light) ---
    *
-   *  Depth 계층도 (밝은순):
+   *  Depth 怨꾩링??(諛앹???:
    *
-   *    L=100  surface         #ffffff    카드 본체
-   *    L=96   surface-raised  #f0f1f4    카드 내 구분 (테이블 헤더, hover)
-   *    L=89   surface-sunken  #dce0e6    카드 내 움푹 영역 (데모 프리뷰, 코드블록, well)
-   *    L=93   bg              #eaebef    페이지 배경
-   *    L=82   border          #cfd3da    일반 구분선
-   *    L=72   border-strong   #adb3bf    강조 구분선
+   *    L=100  surface         #ffffff    移대뱶 蹂몄껜
+   *    L=96   surface-raised  #f0f1f4    移대뱶 ??援щ텇 (?뚯씠釉??ㅻ뜑, hover)
+   *    L=89   surface-sunken  #dce0e6    移대뱶 ??????곸뿭 (?곕え ?꾨━酉? 肄붾뱶釉붾줉, well)
+   *    L=93   bg              #eaebef    ?섏씠吏 諛곌꼍
+   *    L=82   border          #cfd3da    ?쇰컲 援щ텇??
+   *    L=72   border-strong   #adb3bf    媛뺤“ 援щ텇??
    *
-   *  surface-sunken은 surface 내부에서만 쓰임 → bg와 비슷한 명도지만 역할이 다름
+   *  surface-sunken? surface ?대??먯꽌留??곗엫 ??bg? 鍮꾩듂??紐낅룄吏留???븷???ㅻ쫫
    */
   --hl-surface:        #ffffff;
   --hl-surface-raised: #f0f1f4;
@@ -88,10 +89,10 @@
   --hl-overlay:        rgba(0,0,0,0.45);
 
   /* --- Text (Light) ---
-   *    L=10   text            #111827    본문
-   *    L=35   text-secondary  #4b5563    라벨, 설명
-   *    L=57   text-muted      #838c9a    힌트, 타임스탬프
-   *    L=72   text-disabled   #adb3bf    비활성
+   *    L=10   text            #111827    蹂몃Ц
+   *    L=35   text-secondary  #4b5563    ?쇰꺼, ?ㅻ챸
+   *    L=57   text-muted      #838c9a    ?뚰듃, ??꾩뒪?ы봽
+   *    L=72   text-disabled   #adb3bf    鍮꾪솢??
    */
   --hl-text:           #111827;
   --hl-text-secondary: #4b5563;
@@ -118,14 +119,14 @@
   --hl-sp-4: 16px; --hl-sp-5: 20px; --hl-sp-6: 24px;
   --hl-sp-8: 32px; --hl-sp-10: 40px; --hl-sp-12: 48px;
 
-  /* --- Radius (Fluent-inspired, 부드러운 모서리) --- */
+  /* --- Radius (Fluent-inspired, 遺?쒕윭??紐⑥꽌由? --- */
   --hl-radius-sm: 6px;
   --hl-radius:    10px;
   --hl-radius-lg: 14px;
   --hl-radius-xl: 20px;
   --hl-radius-full: 9999px;
 
-  /* --- Elevation (Atlassian-inspired, 레이어드 그림자) --- */
+  /* --- Elevation (Atlassian-inspired, ?덉씠?대뱶 洹몃┝?? --- */
   --hl-shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.1);
   --hl-shadow-2: 0 2px 4px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.08);
   --hl-shadow-3: 0 4px 8px rgba(0,0,0,.06), 0 12px 32px rgba(0,0,0,.1);
@@ -150,25 +151,25 @@
 /* ==========================================================================
    2. DARK MODE
    ==========================================================================
-   전략: data-theme 속성으로 제어. 없으면 시스템 설정 따름.
-     <html data-theme="dark">  → 강제 다크
-     <html data-theme="light"> → 강제 라이트
-     <html>                    → 시스템 설정 따름
+   ?꾨왂: data-theme ?띿꽦?쇰줈 ?쒖뼱. ?놁쑝硫??쒖뒪???ㅼ젙 ?곕쫫.
+     <html data-theme="dark">  ??媛뺤젣 ?ㅽ겕
+     <html data-theme="light"> ??媛뺤젣 ?쇱씠??
+     <html>                    ???쒖뒪???ㅼ젙 ?곕쫫
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   /* --- Dark Mode Depth ---
    *
-   *    L=7    bg              #0d1117    페이지 배경
-   *    L=12   surface         #161b22    카드, 패널
-   *    L=17   surface-raised  #1e2530    테이블 헤더, hover
-   *    L=9    surface-sunken  #0f1318    카드 내 움푹 영역
-   *    L=24   border          #30363d    일반 구분선
-   *    L=32   border-strong   #484f58    강조 구분선
+   *    L=7    bg              #0d1117    ?섏씠吏 諛곌꼍
+   *    L=12   surface         #161b22    移대뱶, ?⑤꼸
+   *    L=17   surface-raised  #1e2530    ?뚯씠釉??ㅻ뜑, hover
+   *    L=9    surface-sunken  #0f1318    移대뱶 ??????곸뿭
+   *    L=24   border          #30363d    ?쇰컲 援щ텇??
+   *    L=32   border-strong   #484f58    媛뺤“ 援щ텇??
    *
-   *    L=91   text            #e6edf3    본문
-   *    L=64   text-secondary  #8b949e    라벨
-   *    L=43   text-muted      #5a6370    힌트
-   *    L=30   text-disabled   #3d4550    비활성
+   *    L=91   text            #e6edf3    蹂몃Ц
+   *    L=64   text-secondary  #8b949e    ?쇰꺼
+   *    L=43   text-muted      #5a6370    ?뚰듃
+   *    L=30   text-disabled   #3d4550    鍮꾪솢??
    */
   :root:not([data-theme="light"]) {
     --hl-bg:             #0d1117;
@@ -247,6 +248,23 @@ img,video,svg { max-width: 100%; display: block; }
 table { border-collapse: collapse; width: 100%; }
 code,pre { font-family: var(--hl-mono); }
 
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
 [class^="icon-"],[class*=" icon-"] {
   font-size: 1em; line-height: 1; vertical-align: -0.125em;
 }
@@ -265,9 +283,10 @@ code,pre { font-family: var(--hl-mono); }
   z-index: 40; overflow: hidden;
 }
 .hl-sidebar__brand {
+  display: flex; align-items: center; gap: 10px;
   padding: var(--hl-sp-4) var(--hl-sp-5);
   border-bottom: 1px solid var(--hl-border);
-  font-size: var(--hl-text-md); font-weight: 700;
+  min-height: var(--hl-header-h);
   color: var(--hl-primary-500);
 }
 .hl-sidebar__nav {
@@ -316,7 +335,25 @@ code,pre { font-family: var(--hl-mono); }
   position: sticky; top: 0; z-index: 30; flex-shrink: 0;
 }
 .hl-header__title {
+  display: inline-flex; align-items: center; gap: 10px;
   font-size: var(--hl-text-base); font-weight: 600; color: var(--hl-text);
+}
+.hl-brand__icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.hl-brand__text {
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+.hl-brand__text--roboto {
+  font-family: 'Roboto', 'Pretendard Variable', 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--hl-text);
 }
 .hl-body {
   flex: 1; padding: var(--hl-sp-5) var(--hl-sp-6);
@@ -996,8 +1033,8 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   border-radius: var(--hl-radius); box-shadow: var(--hl-shadow-3);
   z-index: 50;
 }
-/* 데모용: static 배치 */
-/* 데모용: absolute 해제, 버튼 아래 세로 배치 */
+/* ?곕え?? static 諛곗튂 */
+/* ?곕え?? absolute ?댁젣, 踰꾪듉 ?꾨옒 ?몃줈 諛곗튂 */
 .hl-dropdown:has(.hl-dropdown__menu--static) {
   flex-direction: column; align-items: flex-start;
 }
@@ -1017,7 +1054,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-dropdown__item--danger { color: var(--hl-error); }
 .hl-dropdown__divider { height: 1px; background: var(--hl-border); margin: var(--hl-sp-1) 0; }
 
-/* Submenu (하위 그룹) */
+/* Submenu (?섏쐞 洹몃９) */
 .hl-dropdown__sub {
   position: relative;
 }
@@ -1044,7 +1081,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-dropdown__sub:hover > .hl-dropdown__submenu {
   opacity: 1; pointer-events: auto;
 }
-/* 데모용: 위치 유지하면서 항상 표시 */
+/* ?곕え?? ?꾩튂 ?좎??섎㈃????긽 ?쒖떆 */
 .hl-dropdown__submenu--static {
   opacity: 1; pointer-events: auto;
 }
@@ -1095,3 +1132,4 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   border-top: 1px solid var(--hl-border);
   font-size: var(--hl-text-xs); color: var(--hl-text-muted);
 }
+

@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from './theme';
+
+const hlBrandLogo = `${import.meta.env.BASE_URL}favicon_32_32.png`;
 
 const nav = [
   {
@@ -101,7 +103,10 @@ export default function Layout() {
   return (
     <div className="hl-page">
       <nav className="hl-sidebar">
-        <div className="hl-sidebar__brand">HL Design System</div>
+        <div className="hl-sidebar__brand">
+          <img className="hl-brand__icon" src={hlBrandLogo} alt="HL" width={24} height={24} decoding="async" />
+          <span className="hl-brand__text hl-brand__text--roboto">Design System</span>
+        </div>
         <div className="hl-sidebar__nav">
           {nav.map((group) => (
             <div key={group.label}>
@@ -124,9 +129,12 @@ export default function Layout() {
 
       <div className="hl-main">
         <header className="hl-header">
-          <span className="hl-header__title">HL Design System</span>
+          <span className="hl-header__title">
+            {/* <img className="hl-brand__icon" src={hlBrandLogo} alt="HL" width={24} height={24} decoding="async" /> */}
+            <span className="hl-brand__text hl-brand__text--roboto">UI Design Kit</span>
+          </span>
           <button className="doc-theme-btn" onClick={toggle}>
-            <i className={theme === 'dark' ? 'icon-sun' : 'icon-moon'} />
+            <span className="material-symbols-outlined" aria-hidden="true">{theme === 'dark' ? 'light_mode' : 'dark_mode'}</span>
             {theme === 'dark' ? '라이트 모드' : '다크 모드'}
           </button>
         </header>

@@ -1,6 +1,73 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PRINCIPLES } from '../data/principles';
 
 export default function Home() {
+  const trackRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+  const [detail, setDetail] = useState(null);
+
+  const syncScrollUi = useCallback(() => {
+    const root = trackRef.current;
+    if (!root) return;
+    const { scrollLeft, scrollWidth, clientWidth } = root;
+    setCanPrev(scrollLeft > 8);
+    setCanNext(scrollLeft < scrollWidth - clientWidth - 8);
+
+    const rootRect = root.getBoundingClientRect();
+    const mid = (rootRect.left + rootRect.right) / 2;
+    let best = 0;
+    let bestDist = Infinity;
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const c = (r.left + r.right) / 2;
+      const d = Math.abs(c - mid);
+      if (d < bestDist) {
+        bestDist = d;
+        best = i;
+      }
+    });
+    setActiveIndex(best);
+  }, []);
+
+  useEffect(() => {
+    const root = trackRef.current;
+    if (!root) return;
+    syncScrollUi();
+    root.addEventListener('scroll', syncScrollUi, { passive: true });
+    const ro = new ResizeObserver(syncScrollUi);
+    ro.observe(root);
+    return () => {
+      root.removeEventListener('scroll', syncScrollUi);
+      ro.disconnect();
+    };
+  }, [syncScrollUi]);
+
+  useEffect(() => {
+    if (!detail) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setDetail(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [detail]);
+
+  const scrollToIndex = (i) => {
+    const el = cardRefs.current[i];
+    el?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+  };
+
+  const scrollByPage = (dir) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const step = Math.max(240, Math.floor(el.clientWidth * 0.65));
+    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+
   return (
     <>
       {/* Hero */}
@@ -14,66 +81,70 @@ export default function Home() {
       {/* 핵심 원칙 */}
       <div className="doc-section">
         <div className="doc-section-title">핵심 원칙</div>
-        <div className="doc-section-desc">모든 내부 운영 도구가 따라야 할 7가지 원칙입니다.</div>
-        <div className="hl-grid hl-grid--2">
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-palette" /></div>
-            <div>
-              <div className="doc-principle__title">토큰 사용 필수</div>
-              <div className="doc-principle__desc">색상, 폰트, 간격은 반드시 CSS 변수 토큰을 사용합니다. 하드코딩 금지.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-layout" /></div>
-            <div>
-              <div className="doc-principle__title">레이아웃 순서</div>
-              <div className="doc-principle__desc">Filter → Summary → Main → Detail 순서로 화면을 구성합니다.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-alert-circle" /></div>
-            <div>
-              <div className="doc-principle__title">시맨틱 색상</div>
-              <div className="doc-principle__desc">초록=정상, 노랑=경고, 빨강=에러. 장식용 색상 사용을 금지합니다.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-minimize-2" /></div>
-            <div>
-              <div className="doc-principle__title">Compact Density</div>
-              <div className="doc-principle__desc">테이블 row 40px, 카드 gap 12px. 정보 밀도를 높여 한 화면에 더 많은 데이터를 표시합니다.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-moon" /></div>
-            <div>
-              <div className="doc-principle__title">다크 모드 필수</div>
-              <div className="doc-principle__desc">라이트/다크 모드 모두 지원합니다. 관제실, 야간 환경에 대응합니다.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-table" /></div>
-            <div>
-              <div className="doc-principle__title">Table First</div>
-              <div className="doc-principle__desc">모든 데이터는 테이블로 표현 가능해야 합니다. 시각화는 테이블의 보조입니다.</div>
-            </div>
-          </div>
-
-          <div className="doc-principle">
-            <div className="doc-principle__icon"><i className="icon-equal" /></div>
-            <div>
-              <div className="doc-principle__title">통일감 우선</div>
-              <div className="doc-principle__desc">10개의 서로 다른 도구를 열어도 같은 색상, 같은 구조, 같은 밀도가 되도록 하라.</div>
-            </div>
-          </div>
-
+        <div className="doc-section-desc">
+          모든 내부 운영 도구가 따라야 할 {PRINCIPLES.length}가지 원칙입니다. 카드를 누르면 상세 설명을 볼 수 있습니다. 아래는
+          좌우 스크롤·화살표·점 인디케이터로 이동할 수 있습니다.
         </div>
+
+        <div className="doc-principles-toolbar">
+          <span className="doc-principles-hint">가로 스크롤 또는 버튼으로 이동</span>
+          <div className="doc-principles-nav">
+            <button
+              type="button"
+              className="hl-btn hl-btn--secondary hl-btn--sm"
+              onClick={() => scrollByPage(-1)}
+              disabled={!canPrev}
+              aria-label="이전 원칙들"
+            >
+              <i className="icon-chevron-left" aria-hidden />
+            </button>
+            <button
+              type="button"
+              className="hl-btn hl-btn--secondary hl-btn--sm"
+              onClick={() => scrollByPage(1)}
+              disabled={!canNext}
+              aria-label="다음 원칙들"
+            >
+              <i className="icon-chevron-right" aria-hidden />
+            </button>
+          </div>
+        </div>
+
+        <div ref={trackRef} className="doc-principles-track">
+          {PRINCIPLES.map((p, i) => (
+            <button
+              key={p.id}
+              type="button"
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              className="doc-principle doc-principle--interactive"
+              onClick={() => setDetail(p)}
+            >
+              <div className="doc-principle__icon">
+                <i className={p.icon} aria-hidden />
+              </div>
+              <div className="doc-principle__body">
+                <div className="doc-principle__title">{p.title}</div>
+                <div className="doc-principle__desc">{p.summary}</div>
+                <div className="doc-principle__cta">자세히 보기</div>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <nav className="doc-principles-dots" aria-label="핵심 원칙 슬라이드 위치">
+          {PRINCIPLES.map((p, i) => (
+            <button
+              key={p.id}
+              type="button"
+              className={`doc-principles-dot${i === activeIndex ? ' is-active' : ''}`}
+              onClick={() => scrollToIndex(i)}
+              aria-label={`${p.title}(으)로 이동`}
+              aria-current={i === activeIndex ? 'true' : undefined}
+            />
+          ))}
+        </nav>
       </div>
 
       {/* 탐색 */}
@@ -138,6 +209,51 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {detail && (
+        <div
+          className="hl-modal-backdrop"
+          role="presentation"
+          onClick={() => setDetail(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="principle-modal-title"
+            className="hl-modal doc-principle-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="hl-modal__head">
+              <span id="principle-modal-title" className="doc-principle-modal__head-title">
+                <span className="doc-principle-modal__head-icon" aria-hidden>
+                  <i className={detail.icon} />
+                </span>
+                {detail.title}
+              </span>
+              <button
+                type="button"
+                className="hl-btn hl-btn--ghost hl-btn--sm"
+                onClick={() => setDetail(null)}
+                aria-label="닫기"
+              >
+                <i className="icon-x" aria-hidden />
+              </button>
+            </div>
+            <div className="hl-modal__body doc-principle-modal__body">
+              {detail.detail.map((para, idx) => (
+                <p key={idx} className="doc-principle-modal__para">
+                  {para}
+                </p>
+              ))}
+            </div>
+            <div className="hl-modal__foot">
+              <button type="button" className="hl-btn hl-btn--secondary hl-btn--md" onClick={() => setDetail(null)}>
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
