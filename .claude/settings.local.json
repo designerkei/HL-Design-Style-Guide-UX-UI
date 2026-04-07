@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.hlcompany.com)",
+      "WebFetch(domain:m3.material.io)",
+      "WebFetch(domain:carbondesignsystem.com)",
+      "Bash(open /Users/goeunho/Documents/hl/design_system/preview/index.html)",
+      "WebSearch",
+      "WebFetch(domain:lucide.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:unpkg.com)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(open http://localhost:5174)",
+      "Bash(yes)",
+      "WebFetch(domain:atlassian.design)",
+      "WebFetch(domain:fluent2.microsoft.design)",
+      "Read(//Users/goeunho/.ssh/**)",
+      "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_pigeon9989 -C \"pigeon9989\" -N \"\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
