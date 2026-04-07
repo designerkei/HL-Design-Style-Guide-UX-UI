@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './Layout';
+import { PRODUCTION_BASE } from './siteConfig';
 
 const Home = lazy(() => import('./pages/Home'));
 const Foundations = lazy(() => import('./pages/Foundations'));
@@ -34,9 +35,15 @@ const AvatarPage = lazy(() => import('./pages/components/AvatarPage'));
 const DropdownPage = lazy(() => import('./pages/components/DropdownPage'));
 const SkeletonPage = lazy(() => import('./pages/components/SkeletonPage'));
 
+const productionBaseSegment = PRODUCTION_BASE.replace(/^\//, '').replace(/\/$/, '');
+const escapedProductionBaseSegment = productionBaseSegment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 function LegacyDevBaseRedirect() {
   const location = useLocation();
-  const nextPath = location.pathname.replace(/^\/design_system/, '') || '/';
+  const nextPath = productionBaseSegment
+    ? location.pathname.replace(new RegExp(`^/${escapedProductionBaseSegment}`), '') || '/'
+    : location.pathname || '/';
+
   return <Navigate to={`${nextPath}${location.search}${location.hash}`} replace />;
 }
 
@@ -60,11 +67,14 @@ function renderLazy(Component) {
 }
 
 export default function App() {
-  const useLegacyDevRedirect = import.meta.env.DEV && import.meta.env.BASE_URL === '/';
+  const useLegacyDevRedirect =
+    import.meta.env.DEV && import.meta.env.BASE_URL === '/' && productionBaseSegment;
 
   return (
     <Routes>
-      {useLegacyDevRedirect && <Route path="design_system/*" element={<LegacyDevBaseRedirect />} />}
+      {useLegacyDevRedirect && (
+        <Route path={`${productionBaseSegment}/*`} element={<LegacyDevBaseRedirect />} />
+      )}
       <Route element={<Layout />}>
         <Route index element={renderLazy(Home)} />
         <Route path="foundations" element={renderLazy(Foundations)} />
