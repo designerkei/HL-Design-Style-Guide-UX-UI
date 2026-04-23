@@ -1,0 +1,20 @@
+---
+description: HL 디자인 시스템 — UI 구현 시 자동 준수
+globs: "**/*.{tsx,ts,jsx,js,css}"
+alwaysApply: true
+---
+
+## 시작 전 (이 저장소 또는 HL 스택을 쓰는 모든 UI 작업)
+
+- 사용자가 **GitHub + 배포 사이트 URL만** 준 경우: 배포 사이트의 `/consume`에 있는 프롬프트·링크를 기준으로 하고, 저장소의 `AGENTS.md` → `CLAUDE.md`를 읽는다.
+- 그 외에도 `AGENTS.md`와 `CLAUDE.md`를 읽고 스택을 판별한다: hl-system만 / Tailwind+design-tokens / design-tokens만. **`design-tokens.css`와 `hl-system.css`를 동시에 import하지 않는다.**
+- SaaS·데이터 화면이면 `docs/DATA_DISPLAY.md`와 `docs/PRODUCT_ADOPTION_GUIDE.md`의 레이아웃 순서(Filter → KPI → Main → Detail)를 기본으로 적용한다.
+- 치수·PC/MO·Figma 타입 스케일이 필요하면 `src/data/figma-components.js`를 참조한다.
+
+## 구현 규칙
+
+- UI에 이모지·장식 유니코드 심볼을 넣지 않는다. 아이콘은 (1) 로컬 SVG 체계 또는 (2) hl-system과 동일한 Material Symbols.
+- hl-system 스택 사용 시: 폰트·아이콘 로드는 `public/hl-system.css` 상단 `@import`와 동일 구성 (Pretendard Variable + Geist Mono + Material Symbols, `preconnect`는 index와 맞출 것).
+- 색·간격은 토큰(`var(--…)`, `hl-*` 또는 `design-tokens`의 `--color-*` 등) 우선. 불필요한 인라인 hex 추가 금지.
+- 컴포넌트는 가능하면 가이드의 `hl-btn`, `hl-card`, `hl-input`, `hl-modal*` 패턴에 맞춘다.
+- 작업 완료 전 `CLAUDE.md` 하단 체크리스트와 `AGENTS.md` §4 자가 검증을 적용한다.

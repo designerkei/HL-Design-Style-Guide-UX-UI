@@ -1,8 +1,8 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../language';
 
 const components = [
-  { id: 'button', name: { ko: '버튼', en: 'Button' }, desc: { ko: '클릭 액션을 위한 기본 버튼입니다. Primary, Secondary, Ghost, Danger 변형을 제공합니다.', en: 'Base action button with Primary, Secondary, Ghost, and Danger variants.' }, icon: 'icon-mouse-pointer' },
+  { id: 'button', name: { ko: '버튼', en: 'Button' }, desc: { ko: '클릭 액션을 위한 기본 버튼입니다. Primary, Secondary, Tertiary, Danger 변형을 제공하고 Ghost는 호환 alias로 유지합니다.', en: 'Base action button with Primary, Secondary, Tertiary, and Danger variants. Ghost remains as a legacy alias.' }, icon: 'icon-mouse-pointer' },
   { id: 'badge', name: { ko: '뱃지', en: 'Badge' }, desc: { ko: '상태와 분류를 작게 표시하는 라벨입니다.', en: 'Small status or category label component.' }, icon: 'icon-tag' },
   { id: 'input', name: { ko: '입력', en: 'Input' }, desc: { ko: '텍스트 입력, 셀렉트, 에러 상태를 다루는 입력 필드입니다.', en: 'Input field patterns for text entry, select controls, and validation states.' }, icon: 'icon-text-cursor' },
   { id: 'card', name: { ko: '카드', en: 'Card' }, desc: { ko: '콘텐츠를 그룹핑하는 표준 카드 컨테이너입니다.', en: 'Standard card container for grouping related content.' }, icon: 'icon-credit-card' },

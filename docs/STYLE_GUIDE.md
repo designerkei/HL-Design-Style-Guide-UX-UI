@@ -15,21 +15,22 @@
 
 ### Do
 
-- CSS 변수 또는 Tailwind 프리셋 토큰만 사용하라.
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
   ```css
-  /* CSS */ color: var(--color-primary-600);
+  /* 링크 / active text */ color: var(--color-primary-700);
   ```
   ```html
-  <!-- Tailwind --> <button class="bg-primary-600">
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
   ```
-- 시맨틱 색상 의미를 고정하라:
-  | 색상 | 토큰 | 의미 | 사용 예 |
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
   |------|------|------|---------|
-  | 초록 | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
-  | 노랑 | `warning` | 경고, 주의, 점검 필요 | 임계치 근접, 유지보수 예정 |
-  | 빨강 | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
-  | 파랑 | `primary` | 선택, 강조, 활성 | 현재 선택 항목, 링크 |
-
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 하드코딩 색상 금지: `#3a7bd5`, `rgb(58,123,213)` 등 직접 입력 금지.
@@ -49,18 +50,22 @@
 
 ### Do
 
-- 폰트: Pretendard Variable(한글) + Geist(영문) — `var(--font-sans)` 또는 `font-sans` 사용.
-- 코드/수치: Geist Mono — `var(--font-mono)` 또는 `font-mono` 사용.
-- 토큰 스케일만 사용:
-  | 용도 | 토큰 | 크기 |
-  |------|------|------|
-  | 보조 텍스트, 캡션 | `text-xs` | 12px |
-  | 본문, 테이블 셀 | `text-sm` | 14px |
-  | 소제목 | `text-base` | 16px |
-  | 섹션 제목 | `text-lg` ~ `text-xl` | 18~20px |
-  | 페이지 제목 | `text-2xl` | 24px |
-  | KPI 숫자 | `text-2xl` ~ `text-3xl` | 24~30px |
-
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
+  ```css
+  /* 링크 / active text */ color: var(--color-primary-700);
+  ```
+  ```html
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
+  ```
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 비표준 크기 금지: `font-size: 17px`, `text-[15px]` 등 임의 값 금지.
@@ -80,21 +85,22 @@
 
 ### Do
 
-- 토큰 스케일 사용:
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
   ```css
-  /* CSS */ padding: var(--space-3); gap: var(--space-3);
+  /* 링크 / active text */ color: var(--color-primary-700);
   ```
   ```html
-  <!-- Tailwind --> <div class="p-3 gap-3">
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
   ```
-- 기본 간격 가이드:
-  | 용도 | 토큰 | 값 |
-  |------|------|-----|
-  | 인라인 요소 간 | `space-1` ~ `space-2` | 4~8px |
-  | 카드 내부 패딩 | `space-3` ~ `space-4` | 12~16px |
-  | 카드 간 간격 | `space-3` | 12px |
-  | 섹션 간 간격 | `space-4` ~ `space-6` | 16~24px |
-
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 비정규 값 금지: `padding: 7px`, `gap: 15px` 등 토큰 스케일에 없는 임의 값 금지.
@@ -114,17 +120,22 @@
 
 ### Do
 
-- **CSS 변수 방식**: Surface/Text/Border 토큰을 사용하면 자동으로 다크 모드가 적용된다:
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
   ```css
-  /* CSS */ background: var(--bg); color: var(--text);
+  /* 링크 / active text */ color: var(--color-primary-700);
   ```
-- **시맨틱 배경** (CSS 변수): `var(--color-success-bg)` 등은 다크 모드에서 자동으로 어두운 톤으로 전환.
-- **Tailwind 방식**: 반드시 `dark:` 변형을 함께 지정하라. Surface/Text는 자동 전환되지 않는다:
   ```html
-  <!-- Tailwind --> <div class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50">
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
   ```
-  단, 시맨틱 배경(`bg-success-bg` 등)은 `design-tokens.css`를 함께 import하면 CSS 변수를 통해 자동 전환된다.
-
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 순백(`#ffffff`) / 순검정(`#000000`) 직접 사용 금지 — 토큰을 통해 참조.
@@ -143,11 +154,22 @@
 
 ### Do
 
-- 모바일 → 태블릿 → 데스크톱 순으로 스타일 확장.
-- 테이블은 가로 스크롤 허용 (`overflow-x: auto`).
-- 컨테이너는 `max-width: var(--content-max-width)` 사용.
-- 사이드바는 모바일에서 오버레이로 전환.
-
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
+  ```css
+  /* 링크 / active text */ color: var(--color-primary-700);
+  ```
+  ```html
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
+  ```
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 고정 px 너비 금지: `width: 800px` 등. `max-width` 또는 비율 사용.
@@ -166,12 +188,22 @@
 
 ### Do
 
-- 모든 인터랙티브 요소에 `aria-label` 또는 의미 있는 텍스트 제공.
-- 색상만으로 정보를 전달하지 않는다 — 아이콘, 텍스트, 패턴을 함께 사용.
-  - 예: 상태 뱃지에 색상 + 텍스트("정상", "에러") 병기.
-- `:focus-visible` 스타일 유지 (토큰에 기본 정의됨).
-- 최소 터치/클릭 영역: 32px × 32px.
-
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
+  ```css
+  /* 링크 / active text */ color: var(--color-primary-700);
+  ```
+  ```html
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
+  ```
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - 색상만으로 구분하는 차트/상태 표시 금지.
@@ -190,13 +222,22 @@ AI가 생성하는 코드도 유지보수 가능한 품질이어야 한다.
 
 ### Do
 
-- 컴포넌트 파일은 **300줄 이하**로 유지. 초과 시 분리.
-- CSS 변수 또는 Tailwind 클래스로 스타일링. 인라인 style은 아래 경우에만 허용:
-  - **동적 값**: JS에서 계산된 width, height, transform 등
-  - **CSS 변수 참조**: `style="color: var(--text-secondary)"` 같은 토큰 기반 인라인
-  - **단발성 레이아웃**: `<style>` 블록 없이 빠르게 프로토타이핑하는 경우 (단, 반복되면 클래스로 추출)
-- 반복 패턴은 컴포넌트로 추출.
-
+- CSS 변수 또는 Tailwind 토큰만 사용하라.
+  ```css
+  /* 링크 / active text */ color: var(--color-primary-700);
+  ```
+  ```html
+  <!-- Primary CTA --> <button class="bg-primary-900 text-white">
+  ```
+- HL primary의 역할을 분리하라.
+  | 역할 | 토큰 | 의미 | 사용 예 |
+  |------|------|------|---------|
+  | Primary CTA | `primary-900` | HL Navy 기반의 가장 강한 행동 유도 | 등록, 저장, 승인 |
+  | Active / Focus / Selection | `primary-500` ~ `primary-700` | HL Sky Blue 계열의 활성 강조 | 현재 탭, 링크, 정렬, 포커스, 선택 |
+  | Success | `success` | 정상, 가동, 완료 | 장비 정상 상태, 작업 완료 |
+  | Warning | `warning` | 경고, 주의, 확인 필요 | 임계치 근접, 유지보수 예정 |
+  | Error | `error` | 에러, 정지, 위험 | 장비 고장, 시스템 장애 |
+- Button은 HL 규칙을 따른다: `primary / secondary / tertiary / danger`.
 ### Don't
 
 - `!important` 사용 금지 — 토큰 시스템을 우회하면 통일성이 깨진다.
@@ -221,7 +262,7 @@ AI가 생성하는 코드도 유지보수 가능한 품질이어야 한다.
 |------|--------|------|
 | React 컴포넌트 | PascalCase | `KpiCard`, `FilterBar` |
 | 파일명 | kebab-case | `kpi-card.tsx`, `filter-bar.css` |
-| CSS 변수 | kebab-case | `--color-primary-600` |
+| CSS 변수 | kebab-case | `--color-primary-900` |
 | JS 변수/함수 | camelCase | `fetchDeviceList`, `isActive` |
 | 상수 | UPPER_SNAKE_CASE | `MAX_KPI_COUNT`, `API_BASE_URL` |
 

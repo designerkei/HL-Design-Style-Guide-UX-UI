@@ -8,7 +8,9 @@
 
 ## 1. Button
 
-버튼은 4가지 변형(Primary, Secondary, Ghost, Danger)과 3가지 크기(sm, md, lg)를 지원한다.
+Button은 HL이 직접 소유하는 primitive다. `색상 + Button = HL`, 나머지 primitive 구조/크기/상태는 KRDS를 따른다.
+기본 variant는 `Primary / Secondary / Tertiary / Danger`이며, 기존 `Ghost`는 `Tertiary`의 legacy alias로만 유지한다.
+기본 size scale은 `xs / sm / md / lg / xl = 24 / 32 / 40 / 48 / 56px` 이다.
 
 ### CSS 변수 버전
 
@@ -19,47 +21,79 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
+    min-width: 0;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     border: 1px solid transparent;
     cursor: pointer;
-    transition: all var(--duration-fast) var(--easing);
+    transition: background-color var(--duration-fast) var(--easing),
+      color var(--duration-fast) var(--easing),
+      border-color var(--duration-fast) var(--easing),
+      box-shadow var(--duration-fast) var(--easing),
+      transform var(--duration-fast) var(--easing);
   }
-  /* 크기 */
-  .btn-sm  { padding: var(--space-1) var(--space-3);  font-size: var(--text-xs); }
-  .btn-md  { padding: var(--space-2) var(--space-4);  font-size: var(--text-sm); }
-  .btn-lg  { padding: var(--space-2-5) var(--space-5); font-size: var(--text-base); }
-  /* Primary */
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .btn-xs { height: 24px; padding: 0 var(--space-2); font-size: var(--text-xs); }
+  .btn-sm { height: 32px; padding: 0 var(--space-3); font-size: var(--text-xs); }
+  .btn-md { height: 40px; padding: 0 var(--space-4); font-size: var(--text-sm); }
+  .btn-lg { height: 48px; padding: 0 var(--space-5); font-size: var(--text-base); }
+  .btn-xl { height: 56px; padding: 0 var(--space-6); font-size: var(--text-base); }
+
   .btn-primary {
-    background: var(--color-primary-600);
+    background: var(--color-primary-900);
+    color: var(--text-inverse);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 43, 104, 0.16);
+  }
+  .btn-primary:hover { background: var(--color-primary-800); }
+  .btn-primary:active { background: var(--color-primary-700); }
+  .btn-primary:disabled {
+    background: var(--color-gray-300);
+    border-color: var(--color-gray-300);
     color: var(--text-inverse);
   }
-  .btn-primary:hover { background: var(--color-primary-700); }
-  /* Secondary */
+
   .btn-secondary {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
+    background: var(--surface);
+    color: var(--color-primary-900);
+    border-color: var(--border-hover);
   }
-  .btn-secondary:hover { background: var(--bg-secondary); border-color: var(--border-hover); }
-  /* Ghost */
+  .btn-secondary:hover {
+    background: var(--color-primary-50);
+    border-color: var(--color-primary-700);
+  }
+
+  .btn-tertiary,
   .btn-ghost {
     background: transparent;
-    color: var(--text-secondary);
+    color: var(--color-primary-700);
   }
-  .btn-ghost:hover { background: var(--bg-secondary); color: var(--text); }
-  /* Danger */
+  .btn-tertiary:hover,
+  .btn-ghost:hover {
+    background: var(--color-primary-50);
+    color: var(--color-primary-900);
+  }
+
   .btn-danger {
     background: var(--color-error);
     color: var(--text-inverse);
   }
-  .btn-danger:hover { background: var(--color-error); filter: brightness(0.85); }
+  .btn-danger:hover { background: #a62825; }
 </style>
 
-<button class="btn btn-primary btn-md">저장</button>
-<button class="btn btn-secondary btn-md">취소</button>
-<button class="btn btn-ghost btn-sm">더보기</button>
+<button class="btn btn-primary btn-md">등록</button>
+<button class="btn btn-secondary btn-md">닫기</button>
+<button class="btn btn-tertiary btn-sm">필터 열기</button>
 <button class="btn btn-danger btn-md">삭제</button>
 ```
 
@@ -67,32 +101,44 @@
 
 ```jsx
 {/* Primary */}
-<button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
-  bg-primary-600 text-white rounded-md hover:bg-primary-700
+<button className="inline-flex items-center justify-center gap-2 px-4 h-10 text-sm font-medium
+  bg-primary-900 text-white rounded-sm hover:bg-primary-800 active:bg-primary-700
+  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
   transition-all duration-fast">
-  저장
+  등록
 </button>
 
 {/* Secondary */}
-<button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
-  bg-transparent text-gray-900 dark:text-gray-50 border border-gray-200 dark:border-gray-700
-  rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-fast">
-  취소
+<button className="inline-flex items-center justify-center gap-2 px-4 h-10 text-sm font-medium
+  bg-white dark:bg-gray-900 text-primary-900 dark:text-primary-200
+  border border-gray-300 dark:border-gray-700 rounded-sm
+  hover:bg-primary-50 dark:hover:bg-primary-400/10 hover:border-primary-700 dark:hover:border-primary-300
+  transition-all duration-fast">
+  닫기
 </button>
 
-{/* Ghost */}
-<button className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium
-  text-gray-600 dark:text-gray-400 rounded-md hover:bg-gray-50 dark:hover:bg-gray-900
+{/* Tertiary */}
+<button className="inline-flex items-center justify-center gap-2 px-4 h-10 text-sm font-medium
+  bg-transparent text-primary-700 dark:text-primary-300 rounded-sm
+  hover:bg-primary-50 dark:hover:bg-primary-400/10 hover:text-primary-900 dark:hover:text-primary-100
   transition-all duration-fast">
-  더보기
+  필터 열기
 </button>
 
 {/* Danger */}
-<button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
-  bg-error text-white rounded-md hover:brightness-90 transition-all duration-fast">
+<button className="inline-flex items-center justify-center gap-2 px-4 h-10 text-sm font-medium
+  bg-error text-white rounded-sm hover:bg-[#a62825] transition-all duration-fast">
   삭제
 </button>
 ```
+
+### 구현 체크포인트
+
+- Primary CTA는 한 영역에 1개만 둔다.
+- `Ghost`는 새 이름이 아니라 `Tertiary`의 호환 alias다.
+- Focus ring은 HL Sky Blue를 유지한다.
+- Disabled는 opacity로만 처리하지 말고 배경/보더/텍스트 상태를 함께 바꾼다.
+- 아이콘 전용 버튼은 반드시 `aria-label`을 제공한다.
 
 ---
 
@@ -485,10 +531,10 @@ import streamlit as st
 
 # design-tokens.css에서 추출한 토큰 상수
 HL_TOKENS = {
-    "success": "#16a34a", "success_bg": "#f0fdf4",
-    "warning": "#ca8a04", "warning_bg": "#fefce8",
-    "error":   "#dc2626", "error_bg":   "#fef2f2",
-    "info":    "#0091c7", "info_bg":    "#e8f7fd",
+    "success": "#18864b", "success_bg": "#e8f5ee",
+    "warning": "#b88b17", "warning_bg": "#fdf6e3",
+    "error":   "#c9302c", "error_bg":   "#fce8e8",
+    "info":    "#0095c8", "info_bg":    "#eef8fc",
     "gray600": "#5c6370", "gray100":    "#f1f3f5",
 }
 

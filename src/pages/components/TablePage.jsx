@@ -126,10 +126,10 @@ export default function TablePage() {
               <td>액션</td>
               <td className="doc-token-val">right (.col-action)</td>
               <td>기본</td>
-              <td className="doc-token-name">hl-btn--sm / hl-btn--ghost</td>
+              <td className="doc-token-name">hl-btn--sm / hl-btn--tertiary</td>
               <td>
-                <button className="hl-btn hl-btn--ghost hl-btn--sm"><i className="icon-edit" /></button>
-                <button className="hl-btn hl-btn--ghost hl-btn--sm"><i className="icon-trash-2" /></button>
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm"><i className="icon-edit" /></button>
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm"><i className="icon-trash-2" /></button>
               </td>
             </tr>
           </tbody>
@@ -509,7 +509,7 @@ export default function TablePage() {
             <tr>
               <td className="doc-token-name">th[aria-sort] .sort-icon</td>
               <td>활성 정렬 아이콘</td>
-              <td>primary-600 색상</td>
+              <td>HL Sky Blue sort accent (primary-600)</td>
             </tr>
             <tr>
               <td className="doc-token-name">.mono / .col-num</td>
@@ -529,7 +529,7 @@ export default function TablePage() {
             <tr>
               <td className="doc-token-name">tr.is-selected</td>
               <td>선택된 행</td>
-              <td>primary-50 배경</td>
+              <td>HL Sky Blue selection bg (primary-50)</td>
             </tr>
             <tr>
               <td className="doc-token-name">tr.is-expandable</td>

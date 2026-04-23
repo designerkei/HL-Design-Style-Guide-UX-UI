@@ -45,7 +45,7 @@ export default function CardPage() {
                 </div>
               </div>
               <div className="hl-card__foot">
-                <button className="hl-btn hl-btn--ghost hl-btn--sm">취소</button>
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm">취소</button>
                 <button className="hl-btn hl-btn--primary hl-btn--sm">저장</button>
               </div>
             </div>

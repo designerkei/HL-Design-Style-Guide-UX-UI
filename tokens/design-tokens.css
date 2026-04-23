@@ -9,7 +9,7 @@
 
 /* === Font Imports === */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 
 /* === Icon Font: Lucide Icons === */
 @import url('https://unpkg.com/lucide-static@0.473.0/font/lucide.css');
@@ -19,15 +19,15 @@
    ========================================================================== */
 :root {
   /* --- Brand Colors: Primary (HL Sky Blue → HL Navy) --- */
-  --color-primary-50:  #e8f7fd;
-  --color-primary-100: #c5ecfb;
-  --color-primary-200: #93ddf8;
-  --color-primary-300: #56c9f3;
-  --color-primary-400: #1fb8ed;
+  --color-primary-50:  #eef8fc;
+  --color-primary-100: #d5eef9;
+  --color-primary-200: #a8ddf3;
+  --color-primary-300: #6bc5ea;
+  --color-primary-400: #30ade0;
   --color-primary-500: #00B4ED; /* HL Sky Blue — 브랜드 기본 */
-  --color-primary-600: #0091c7; /* 기본 인터랙티브 (버튼, 링크) */
-  --color-primary-700: #006d96;
-  --color-primary-800: #054d6e;
+  --color-primary-600: #0095c8; /* 기본 인터랙티브 (버튼, 링크) */
+  --color-primary-700: #00729a;
+  --color-primary-800: #005474;
   --color-primary-900: #002B68; /* HL Navy — 어두운 브랜드 액센트 */
 
   /* --- Brand Colors: Accent --- */
@@ -36,28 +36,29 @@
   --color-accent-silver:      #B2B2B2;
   --color-accent-silver-light:#d9d9d9;
 
-  /* --- Neutral Colors: Gray (쿨 블루 틴트) --- */
-  --color-gray-50:  #f8f9fb;
-  --color-gray-100: #f1f3f5;
-  --color-gray-200: #e2e5e9;
-  --color-gray-300: #cdd1d7;
-  --color-gray-400: #a1a7b0;
-  --color-gray-500: #7a818c;
-  --color-gray-600: #5c6370;
-  --color-gray-700: #434a56;
-  --color-gray-800: #2d333d;
-  --color-gray-900: #1c2028;
-  --color-gray-950: #0d1017;
+  /* --- Neutral Colors: Gray (쿨 블루-그레이 톤) --- */
+  --color-gray-50:  #f5f6f8;
+  --color-gray-100: #eaecf0;
+  --color-gray-150: #dfe1e6;
+  --color-gray-200: #d2d5db;
+  --color-gray-300: #b3b8c2;
+  --color-gray-400: #8b919e;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #0a0f1a;
 
   /* --- Semantic Colors --- */
-  --color-success:    #16a34a;
-  --color-success-bg: #f0fdf4;
-  --color-warning:    #ca8a04;
-  --color-warning-bg: #fefce8;
-  --color-error:      #dc2626;
-  --color-error-bg:   #fef2f2;
-  --color-info:       #0091c7; /* = primary-600 */
-  --color-info-bg:    #e8f7fd; /* = primary-50 */
+  --color-success:    #18864b;
+  --color-success-bg: #e8f5ee;
+  --color-warning:    #b88b17;
+  --color-warning-bg: #fdf6e3;
+  --color-error:      #c9302c;
+  --color-error-bg:   #fce8e8;
+  --color-info:       #0095c8; /* = primary-600 */
+  --color-info-bg:    #eef8fc; /* = primary-50 */
 
   /* --- Surface --- */
   --bg:              #ffffff;
@@ -79,7 +80,7 @@
   --border-focus:    var(--color-primary-500);
 
   /* --- Typography --- */
-  --font-sans: 'Pretendard Variable', 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
 
   --text-xs:   0.75rem;   /* 12px */

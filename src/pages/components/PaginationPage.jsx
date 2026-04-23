@@ -87,7 +87,7 @@ export default function PaginationPage() {
             <tr>
               <td className="doc-token-name">.hl-pagination__btn.is-active</td>
               <td>현재 활성 페이지</td>
-              <td>primary-600 배경</td>
+              <td>HL Sky Blue active fill (primary-600)</td>
             </tr>
             <tr>
               <td className="doc-token-name">.hl-pagination__btn:disabled</td>

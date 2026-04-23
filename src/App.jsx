@@ -12,6 +12,8 @@ const Monitoring = lazy(() => import('./pages/Monitoring'));
 const Cctv = lazy(() => import('./pages/Cctv'));
 const DataViz = lazy(() => import('./pages/DataViz'));
 const LayoutGuide = lazy(() => import('./pages/LayoutGuide'));
+const DesignTokens = lazy(() => import('./pages/DesignTokens'));
+const ConsumeFromLinks = lazy(() => import('./pages/ConsumeFromLinks'));
 
 const ButtonPage = lazy(() => import('./pages/components/ButtonPage'));
 const BadgePage = lazy(() => import('./pages/components/BadgePage'));
@@ -77,6 +79,7 @@ export default function App() {
       )}
       <Route element={<Layout />}>
         <Route index element={renderLazy(Home)} />
+        <Route path="consume" element={renderLazy(ConsumeFromLinks)} />
         <Route path="foundations" element={renderLazy(Foundations)} />
         <Route path="motion" element={renderLazy(Motion)} />
         <Route path="components" element={renderLazy(ComponentsIndex)} />
@@ -101,6 +104,7 @@ export default function App() {
         <Route path="components/avatar" element={renderLazy(AvatarPage)} />
         <Route path="components/dropdown" element={renderLazy(DropdownPage)} />
         <Route path="components/skeleton" element={renderLazy(SkeletonPage)} />
+        <Route path="design-tokens" element={renderLazy(DesignTokens)} />
         <Route path="guide/layout" element={renderLazy(LayoutGuide)} />
         <Route path="guide/data-visualization" element={renderLazy(DataViz)} />
         <Route path="dashboard" element={renderLazy(Dashboard)} />

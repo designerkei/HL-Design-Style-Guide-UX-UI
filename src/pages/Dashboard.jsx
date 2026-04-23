@@ -1,4 +1,4 @@
-﻿import {
+import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
 import { useLanguage } from '../language';
@@ -70,7 +70,7 @@ export default function Dashboard() {
         <input className="hl-input" type="date" />
         <input className="hl-input" type="date" />
         <button className="hl-btn hl-btn--primary hl-btn--sm">{t(copy.apply)}</button>
-        <button className="hl-btn hl-btn--ghost hl-btn--sm">{t(copy.reset)}</button>
+        <button className="hl-btn hl-btn--tertiary hl-btn--sm">{t(copy.reset)}</button>
       </div>
 
       <div className="hl-kpi-row hl-kpi-row--4">

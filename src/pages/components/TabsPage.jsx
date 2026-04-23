@@ -104,7 +104,7 @@ export default function TabsPage() {
             </tr>
             <tr>
               <td className="doc-token-name">.hl-tab.is-active</td>
-              <td>활성 탭. primary-600 색상, border-bottom primary-600</td>
+              <td>활성 탭. HL Sky Blue accent(primary-600) text, border-bottom primary-600</td>
               <td>현재 선택된 탭</td>
             </tr>
             <tr>

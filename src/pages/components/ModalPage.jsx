@@ -29,7 +29,7 @@ export default function ModalPage() {
             >
               <div className="hl-modal__head">
                 <span>장비 삭제 확인</span>
-                <button className="hl-btn hl-btn--ghost hl-btn--sm">
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm">
                   <i className="icon-x" />
                 </button>
               </div>
@@ -65,7 +65,7 @@ export default function ModalPage() {
             >
               <div className="hl-modal__head">
                 <span>알림 설정</span>
-                <button className="hl-btn hl-btn--ghost hl-btn--sm">
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm">
                   <i className="icon-x" />
                 </button>
               </div>

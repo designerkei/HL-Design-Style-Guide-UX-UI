@@ -9,7 +9,9 @@
 
 ```
 hl-design-system/
-├── CLAUDE.md                  ← AI용: 핵심 지시문 (모든 문서의 진입점)
+├── AGENTS.md                  ← AI용: 실행 순서·스택 분기·「두 URL만」 시나리오
+├── .env.example               ← 배포 시 VITE_SOURCE_REPO_URL (링크로 시작 페이지 자동 채움)
+├── CLAUDE.md                  ← AI용: 핵심 지시문·체크리스트
 ├── README.md                  ← 지금 보고 있는 문서
 ├── tokens/
 │   ├── design-tokens.css      ← CSS 변수 토큰 (색상, 폰트, 간격, 다크모드)
@@ -17,9 +19,11 @@ hl-design-system/
 ├── public/
 │   └── hl-system.css          ← 패키징된 CSS 라이브러리 (토큰 + 21개 컴포넌트)
 ├── docs/
+│   ├── PRODUCT_ADOPTION_GUIDE.md ← SaaS 적용·반응형·Figma 매핑
 │   ├── STYLE_GUIDE.md         ← 스타일 규칙 (Do / Don't)
 │   ├── DATA_DISPLAY.md        ← 데이터 표현 원칙 (레이아웃, KPI, 밀도)
-│   └── COMPONENTS.md          ← 13개 핵심 컴포넌트 패턴 (CSS + Tailwind + Python)
+│   ├── COMPONENTS.md          ← 13개 핵심 컴포넌트 패턴 (CSS + Tailwind + Python)
+│   └── CONSISTENCY_AND_AUTOMATION.md ← AI·IDE·점검 스크립트 운영 규칙
 └── examples/
     ├── GOOD_EXAMPLES.md       ← 4개 도메인별 좋은 예시
     └── BAD_EXAMPLES.md        ← 8개 흔한 실수와 수정 방법
@@ -36,6 +40,15 @@ hl-design-system/
 
 > **주의**: `design-tokens.css`와 `hl-system.css`를 동시에 import하지 마세요. 토큰이 중복 정의되어 충돌합니다.
 
+### 두 링크만 넘길 때 (GitHub + 배포 사이트)
+
+배포 후 **저장소 URL**과 **스타일가이드 사이트 URL**만 동료·AI에게 주면 되도록 하려면:
+
+1. GitHub Pages 등으로 사이트를 배포한다. **저장소 URL**은 `src/siteConstants.js`의 `DEFAULT_SOURCE_REPO_URL`에 고정되어 있어 `/consume` 페이지에 **미리 채워진다**. 포크만 쓸 때는 `.env.production`의 `VITE_SOURCE_REPO_URL`로 덮어쓴다(`.env.example` 참고).
+2. 사이트의 **`/consume` 경로**(내비: **링크로 시작 (AI)**)에서 **배포 주소 + 저장소 기준 복사용 프롬프트**와 필수 문서 링크를 복사한다.
+3. 상대방은 그 페이지에서 프롬프트를 복사해 Cursor 등에 붙이거나, 에이전트가 GitHub의 `AGENTS.md`를 직접 읽게 하면 된다. 상세는 `AGENTS.md` §0.5.
+4. **구현 기준은 GitHub 문서**다. 배포 사이트는 시각·동작 참고용이며, 둘이 다르면 문서를 따른다.
+
 ---
 
 ## 빠른 시작
@@ -49,13 +62,13 @@ cd your-project
 git submodule add https://github.com/pigeon9989/design_system.git design-system
 ```
 
-프로젝트 루트의 `CLAUDE.md`에 한 줄을 추가합니다:
+프로젝트 루트의 `CLAUDE.md`(또는 `AGENTS.md`)에 아래를 넣습니다:
 
 ```markdown
-UI 작업 시 반드시 `design-system/CLAUDE.md`를 먼저 읽고 따를 것.
+UI 작업 시 반드시 `design-system/AGENTS.md`의 순서를 따르고, `design-system/CLAUDE.md` 규칙을 준수할 것.
 ```
 
-이것만으로 Claude Code가 자동으로 디자인 시스템을 참조합니다.
+`AGENTS.md`에는 읽기 순서·스택 분기·SaaS 화면 기본 구조·복붙용 프롬프트 템플릿이 있다. Cursor 사용자는 이 저장소를 연 채 `.cursor/rules`를 유지하거나, 소비 프로젝트에 동일 취지의 규칙을 복사한다.
 
 ### 방법 2: 폴더 복사 (간편)
 

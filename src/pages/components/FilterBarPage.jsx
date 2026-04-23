@@ -37,7 +37,7 @@ export default function FilterBarPage() {
               <input className="hl-input" type="date" />
               <input className="hl-input" type="date" />
               <div style={{ marginLeft: 'auto' }} className="hl-flex hl-gap-2">
-                <button className="hl-btn hl-btn--ghost hl-btn--sm">
+                <button className="hl-btn hl-btn--tertiary hl-btn--sm">
                   <i className="icon-rotate-ccw" /> 초기화
                 </button>
                 <button className="hl-btn hl-btn--primary hl-btn--sm">

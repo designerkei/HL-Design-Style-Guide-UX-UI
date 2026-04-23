@@ -249,7 +249,7 @@ export default function DataViz() {
                     <XAxis dataKey="name" tick={ct.axis} axisLine={false} tickLine={false} />
                     <YAxis tick={ct.axis} axisLine={false} tickLine={false} domain={[60, 100]} />
                     <Tooltip {...ct.tooltip} />
-                    <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Pretendard Variable, Geist, sans-serif', color: ct.text.secondary }} />
+                    <Legend wrapperStyle={{ fontSize: 12, fontFamily: "'Pretendard Variable', system-ui, sans-serif", color: ct.text.secondary }} />
                     <Line type="monotone" dataKey="A라인" stroke={ct.colors.series[0]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[0] }} />
                     <Line type="monotone" dataKey="B라인" stroke={ct.colors.series[1]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[1] }} />
                     <Line type="monotone" dataKey="C라인" stroke={ct.colors.series[2]} strokeWidth={2} dot={{ r: 3, stroke: ct.dotStroke, strokeWidth: 2, fill: ct.colors.series[2] }} />

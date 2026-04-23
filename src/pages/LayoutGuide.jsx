@@ -87,7 +87,7 @@ export default function LayoutGuide() {
             <tr><td className="doc-token-name">.hl-sidebar__brand</td><td>앱 제목/로고</td><td className="doc-token-val">padding: sp-4 sp-5; font-weight: 700</td></tr>
             <tr><td className="doc-token-name">.hl-sidebar__group-label</td><td>네비 그룹 제목</td><td className="doc-token-val">uppercase; text-xs; text-muted</td></tr>
             <tr><td className="doc-token-name">.hl-sidebar__link</td><td>네비 항목</td><td className="doc-token-val">flex; text-sm; hover → surface-raised</td></tr>
-            <tr><td className="doc-token-name">.hl-sidebar__link.is-active</td><td>현재 페이지</td><td className="doc-token-val">primary-600; primary-50 bg; left border</td></tr>
+            <tr><td className="doc-token-name">.hl-sidebar__link.is-active</td><td>현재 페이지</td><td className="doc-token-val">HL Sky Blue accent(primary-600) text; primary-50 bg; left border</td></tr>
             <tr><td className="doc-token-name">.hl-main</td><td>메인 영역 래퍼</td><td className="doc-token-val">flex: 1; margin-left: sidebar-w</td></tr>
             <tr><td className="doc-token-name">.hl-header</td><td>상단 바</td><td className="doc-token-val">height: 48px; sticky; surface bg; border-bottom</td></tr>
             <tr><td className="doc-token-name">.hl-body</td><td>콘텐츠 영역</td><td className="doc-token-val">flex: 1; padding: sp-5 sp-6; bg</td></tr>
@@ -108,7 +108,7 @@ export default function LayoutGuide() {
             <tr><td className="doc-token-name">Brand</td><td>앱 이름 또는 로고. Primary 색상. 하단 border로 구분.</td></tr>
             <tr><td className="doc-token-name">Group Label</td><td>관련 링크를 묶는 소제목. UPPERCASE, text-xs, text-muted.</td></tr>
             <tr><td className="doc-token-name">Link</td><td>아이콘(16px) + 텍스트. 기본: opacity 0.72. hover: opacity 1 + surface-raised bg.</td></tr>
-            <tr><td className="doc-token-name">Active Link</td><td>primary-600 텍스트, primary-50 배경, 좌측 2px primary-500 보더.</td></tr>
+            <tr><td className="doc-token-name">Active Link</td><td>HL Sky Blue accent text(primary-600), primary-50 background, left 2px primary-500 border.</td></tr>
             <tr><td className="doc-token-name">Overflow</td><td>네비 항목이 많으면 nav 영역만 스크롤 (overflow-y: auto).</td></tr>
           </tbody>
         </table>

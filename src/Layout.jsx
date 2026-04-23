@@ -8,7 +8,10 @@ const hlBrandLogo = `${import.meta.env.BASE_URL}favicon_32_32.png`;
 const nav = [
   {
     label: { ko: '개요', en: 'Overview' },
-    items: [{ to: '/', icon: 'icon-home', text: { ko: '시작하기', en: 'Getting Started' } }],
+    items: [
+      { to: '/', icon: 'icon-home', text: { ko: '시작하기', en: 'Getting Started' } },
+      { to: '/consume', icon: 'icon-bot', text: { ko: '링크로 시작 (AI)', en: 'Start from links (AI)' } },
+    ],
   },
   {
     label: { ko: '기초', en: 'Foundations' },
@@ -18,6 +21,7 @@ const nav = [
       { to: '/foundations#spacing', icon: 'icon-ruler', text: { ko: '간격', en: 'Spacing' } },
       { to: '/foundations#shadows', icon: 'icon-square', text: { ko: '그림자 & 모서리', en: 'Shadows & Radius' } },
       { to: '/motion', icon: 'icon-zap', text: { ko: '모션', en: 'Motion' } },
+      { to: '/design-tokens', icon: 'icon-copy', text: { ko: '디자인 토큰', en: 'Design Tokens' } },
     ],
   },
   {

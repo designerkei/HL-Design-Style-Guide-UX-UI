@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { PRODUCTION_BASE } from './src/siteConfig.js';
+import { PRODUCTION_BASE } from './src/siteConstants.js';
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],

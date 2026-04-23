@@ -1,4 +1,4 @@
-﻿import { useLanguage } from '../language';
+import { useLanguage } from '../language';
 
 const typeOptions = [
   { ko: '유형 전체', en: 'All Types' },
@@ -70,7 +70,7 @@ export default function Monitoring() {
           {statusOptions.map((option) => <option key={option.en}>{t(option)}</option>)}
         </select>
         <button className="hl-btn hl-btn--primary hl-btn--sm">{t(copy.apply)}</button>
-        <button className="hl-btn hl-btn--ghost hl-btn--sm">{t(copy.reset)}</button>
+        <button className="hl-btn hl-btn--tertiary hl-btn--sm">{t(copy.reset)}</button>
       </div>
 
       <div className="hl-kpi-row hl-kpi-row--4">

@@ -19,29 +19,30 @@ module.exports = {
       /* --- Colors --- */
       colors: {
         primary: {
-          50:  '#e8f7fd',
-          100: '#c5ecfb',
-          200: '#93ddf8',
-          300: '#56c9f3',
-          400: '#1fb8ed',
+          50:  '#eef8fc',
+          100: '#d5eef9',
+          200: '#a8ddf3',
+          300: '#6bc5ea',
+          400: '#30ade0',
           500: '#00B4ED', // HL Sky Blue
-          600: '#0091c7', // 기본 인터랙티브
-          700: '#006d96',
-          800: '#054d6e',
+          600: '#0095c8', // HL interactive accent
+          700: '#00729a',
+          800: '#005474',
           900: '#002B68', // HL Navy
         },
         gray: {
-          50:  '#f8f9fb',
-          100: '#f1f3f5',
-          200: '#e2e5e9',
-          300: '#cdd1d7',
-          400: '#a1a7b0',
-          500: '#7a818c',
-          600: '#5c6370',
-          700: '#434a56',
-          800: '#2d333d',
-          900: '#1c2028',
-          950: '#0d1017',
+          50:  '#f5f6f8',
+          100: '#eaecf0',
+          150: '#dfe1e6',
+          200: '#d2d5db',
+          300: '#b3b8c2',
+          400: '#8b919e',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#0a0f1a',
         },
         accent: {
           gold:          '#C09A5D',
@@ -49,18 +50,16 @@ module.exports = {
           silver:        '#B2B2B2',
           'silver-light':'#d9d9d9',
         },
-        /* 시맨틱 배경(bg)은 CSS 변수 참조 → design-tokens.css와 함께 쓰면 다크모드 자동 전환.
-           design-tokens.css 없이 쓸 경우 fallback 값(라이트 모드)이 적용됨. */
-        success:    { DEFAULT: '#16a34a', bg: 'var(--color-success-bg, #f0fdf4)' },
-        warning:    { DEFAULT: '#ca8a04', bg: 'var(--color-warning-bg, #fefce8)' },
-        error:      { DEFAULT: '#dc2626', bg: 'var(--color-error-bg, #fef2f2)' },
-        info:       { DEFAULT: '#0091c7', bg: 'var(--color-info-bg, #e8f7fd)' },
+        /* 시맨틱 배경(bg)은 CSS 변수 참조. design-tokens.css와 함께 읽으면 다크 모드 자동 전환. */
+        success:    { DEFAULT: '#18864b', bg: 'var(--color-success-bg, #e8f5ee)' },
+        warning:    { DEFAULT: '#b88b17', bg: 'var(--color-warning-bg, #fdf6e3)' },
+        error:      { DEFAULT: '#c9302c', bg: 'var(--color-error-bg, #fce8e8)' },
+        info:       { DEFAULT: '#0095c8', bg: 'var(--color-info-bg, #eef8fc)' },
       },
-
       /* --- Typography --- */
       fontFamily: {
         sans: [
-          'Pretendard Variable', 'Geist',
+          'Pretendard Variable',
           '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif',
         ],
         mono: [

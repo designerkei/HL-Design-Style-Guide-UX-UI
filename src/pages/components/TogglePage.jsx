@@ -105,7 +105,7 @@ export default function TogglePage() {
             <tr>
               <td className="doc-token-name">.hl-toggle__track</td>
               <td>트랙. 36x20px, radius-full, gray-300 배경</td>
-              <td>is-on일 때 primary-600</td>
+              <td>is-on일 때 HL Sky Blue accent(primary-600)</td>
             </tr>
             <tr>
               <td className="doc-token-name">.hl-toggle__thumb</td>

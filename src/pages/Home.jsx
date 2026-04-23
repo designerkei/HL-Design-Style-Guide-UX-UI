@@ -5,6 +5,15 @@ import { useLanguage } from '../language';
 
 const exploreLinks = [
   {
+    to: '/consume',
+    icon: 'icon-bot',
+    title: { ko: '링크로 시작 (AI)', en: 'Start from links (AI)' },
+    description: {
+      ko: 'GitHub와 배포 사이트 URL만으로 AI에게 시킬 때 쓰는 복사용 프롬프트와 문서 링크입니다.',
+      en: 'Copy-paste prompts and canonical links when you only share the GitHub repo and this deployed site.',
+    },
+  },
+  {
     to: '/foundations',
     icon: 'icon-palette',
     title: { ko: '기본 토큰', en: 'Foundations' },

@@ -1,4 +1,4 @@
-﻿import { useLanguage } from '../language';
+import { useLanguage } from '../language';
 
 const primaryScale = [
   ['50', '#eef8fc', '#005474'],
@@ -146,9 +146,9 @@ const densityRows = [
 
 const radiusItems = [
   ['sm', 'var(--hl-radius-sm)', '4px', undefined],
-  ['md', 'var(--hl-radius)', '8px', undefined],
-  ['lg', 'var(--hl-radius-lg)', '12px', undefined],
-  ['xl', 'var(--hl-radius-xl)', '16px', undefined],
+  ['md', 'var(--hl-radius)', '6px', undefined],
+  ['lg', 'var(--hl-radius-lg)', '8px', undefined],
+  ['xl', 'var(--hl-radius-xl)', '12px', undefined],
   ['full', 'var(--hl-radius-full)', '999px', 100],
 ];
 

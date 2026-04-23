@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "HL 내부 운영 도구 UI 디자인 시스템",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/designerkei/HL-Design-Style-Guide-UX-UI.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

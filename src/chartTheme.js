@@ -70,7 +70,7 @@ export function useChartTheme() {
           ? '0 4px 12px rgba(0,0,0,.4)'
           : '0 4px 12px rgba(0,0,0,.1)',
         fontSize: 13,
-        fontFamily: 'Pretendard Variable, Geist, sans-serif',
+        fontFamily: "'Pretendard Variable', system-ui, sans-serif",
         padding: '8px 12px',
         color: isDark ? '#e6edf3' : '#111827',
       },
@@ -110,7 +110,7 @@ export const hlTooltipStyle = {
   contentStyle: {
     background: '#fff', border: '1px solid #d2d5db', borderRadius: 10,
     boxShadow: '0 4px 12px rgba(0,0,0,.1)', fontSize: 13,
-    fontFamily: 'Pretendard Variable, Geist, sans-serif', padding: '8px 12px',
+    fontFamily: "'Pretendard Variable', system-ui, sans-serif", padding: '8px 12px',
   },
   labelStyle: { fontWeight: 600, marginBottom: 4 },
   itemStyle: { fontFamily: 'Geist Mono, monospace', fontSize: 12, padding: '2px 0' },

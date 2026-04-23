@@ -31,7 +31,7 @@ export default function TooltipPage() {
             </div>
 
             <div className="hl-tooltip-wrap">
-              <button className="hl-btn hl-btn--ghost hl-btn--md">
+              <button className="hl-btn hl-btn--tertiary hl-btn--md">
                 <i className="icon-settings" />
               </button>
               <span className="hl-tooltip">설정</span>
