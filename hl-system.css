@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    HL Design System v1.0
    ==========================================================================
    ??沅???곸겫 ?袁㏓럡 UI ???뵬???袁る립 ???텕筌욌베留?CSS ?뚮똾猷??곕뱜 ??깆뵠?됰슢??뵳?
@@ -10,8 +10,11 @@
    筌〓㈇?? Carbon Design System, Material Design 3, Fluent Design System
    ========================================================================== */
 
-/* === Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200&display=swap');
+/* === Fonts ===
+ * UI 산세리프: Pretendard Variable (한·영 공통). 코드·수치: Geist Mono. 아이콘: Material Symbols.
+ */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200&display=swap');
 
 
 /* ==========================================================================
@@ -21,15 +24,15 @@
   /* --- Primary (HL Sky Blue ??HL Navy) ---
    *   ??design-tokens.css?? ??녿┛?遺얜쭡. 揶?癰궰野????臾믡걹 筌뤴뫀紐???륁젟??野?
    */
-  --hl-primary-50:  #e8f7fd;
-  --hl-primary-100: #c5ecfb;
-  --hl-primary-200: #93ddf8;
-  --hl-primary-300: #56c9f3;
-  --hl-primary-400: #1fb8ed;
+  --hl-primary-50:  #eef8fc;
+  --hl-primary-100: #d5eef9;
+  --hl-primary-200: #a8ddf3;
+  --hl-primary-300: #6bc5ea;
+  --hl-primary-400: #30ade0;
   --hl-primary-500: #00B4ED;
-  --hl-primary-600: #0091c7;
-  --hl-primary-700: #006d96;
-  --hl-primary-800: #054d6e;
+  --hl-primary-600: #0095c8;
+  --hl-primary-700: #00729a;
+  --hl-primary-800: #005474;
   --hl-primary-900: #002B68;
 
   /* --- Neutral (??됱뵠???닌됲뀋 揶쏅벤?? --- */
@@ -54,14 +57,14 @@
   /* --- Semantic ---
    *   ??design-tokens.css?? ??녿┛?遺얜쭡. 揶?癰궰野????臾믡걹 筌뤴뫀紐???륁젟??野?
    */
-  --hl-success:     #16a34a;
-  --hl-success-light:#f0fdf4;
-  --hl-warning:     #ca8a04;
-  --hl-warning-light:#fefce8;
-  --hl-error:       #dc2626;
-  --hl-error-light: #fef2f2;
-  --hl-info:        #0091c7;
-  --hl-info-light:  #e8f7fd;
+  --hl-success:     #18864b;
+  --hl-success-light:#e8f5ee;
+  --hl-warning:     #b88b17;
+  --hl-warning-light:#fdf6e3;
+  --hl-error:       #c9302c;
+  --hl-error-light: #fce8e8;
+  --hl-info:        #0095c8;
+  --hl-info-light:  #eef8fc;
 
   /* --- Surface & Background (Light) ---
    *
@@ -96,10 +99,11 @@
   --hl-text-link:      var(--hl-primary-700);
 
   /* --- Typography --- */
-  --hl-font-ko: 'Noto Sans KR', 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --hl-font-en: 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* 한·영 동일 스택: 언어별로 다른 산세리프를 두지 않음 (Figma/KRDS Pretendard 기준과 정합) */
+  --hl-font-ko: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --hl-font-en: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --hl-font: var(--hl-font-ko);
-  --hl-mono: 'Roboto Mono', ui-monospace, monospace;
+  --hl-mono: 'Geist Mono', ui-monospace, monospace;
 
   --hl-text-xs:   0.6875rem;  /* 11px */
   --hl-text-sm:   0.8125rem;  /* 13px */
@@ -116,10 +120,10 @@
   --hl-sp-8: 32px; --hl-sp-10: 40px; --hl-sp-12: 48px;
 
   /* --- Radius (Fluent-inspired, ?봔??뺤쑎??筌뤴뫁苑뚨뵳? --- */
-  --hl-radius-sm: 6px;
-  --hl-radius:    10px;
-  --hl-radius-lg: 14px;
-  --hl-radius-xl: 20px;
+  --hl-radius-sm: 4px;
+  --hl-radius:    6px;
+  --hl-radius-lg: 8px;
+  --hl-radius-xl: 12px;
   --hl-radius-full: 9999px;
 
   /* --- Elevation (Atlassian-inspired, ??됱뵠??諭?域밸챶??? --- */
@@ -231,14 +235,6 @@ html[lang='en'] {
 
 body, input, button, select, textarea {
   font-optical-sizing: auto;
-}
-
-html[lang='en'] body,
-html[lang='en'] input,
-html[lang='en'] button,
-html[lang='en'] select,
-html[lang='en'] textarea {
-  font-variation-settings: 'wdth' 100;
 }
 
 body {
@@ -475,56 +471,145 @@ code,pre { font-family: var(--hl-mono); }
 .hl-btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: var(--hl-sp-2);
+  min-width: 0;
   font-family: var(--hl-font); font-weight: 500;
   border: 1px solid transparent; cursor: pointer;
   border-radius: var(--hl-radius-sm);
-  transition: all var(--hl-dur) var(--hl-ease),
-              transform var(--hl-dur) var(--hl-ease),
-              box-shadow var(--hl-dur) var(--hl-ease);
+  transition: background-color var(--hl-dur) var(--hl-ease),
+              color var(--hl-dur) var(--hl-ease),
+              border-color var(--hl-dur) var(--hl-ease),
+              box-shadow var(--hl-dur) var(--hl-ease),
+              transform var(--hl-dur) var(--hl-ease);
   white-space: nowrap; text-decoration: none;
   line-height: 1;
 }
 .hl-btn:hover { text-decoration: none; }
-.hl-btn:active { transform: translateY(0) scale(.98); }
+.hl-btn:focus-visible {
+  outline: 2px solid var(--hl-primary-500);
+  outline-offset: 2px;
+}
+.hl-btn:disabled,
+.hl-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+.hl-btn:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(0) scale(.98);
+}
 
-.hl-btn--sm  { height: 30px; padding: 0 var(--hl-sp-3); font-size: var(--hl-text-xs); }
-.hl-btn--md  { height: 36px; padding: 0 var(--hl-sp-4); font-size: var(--hl-text-sm); }
-.hl-btn--lg  { height: 42px; padding: 0 var(--hl-sp-6); font-size: var(--hl-text-base); }
+.hl-btn--xsmall,
+.hl-btn--xs { height: 24px; padding: 0 var(--hl-sp-2); font-size: var(--hl-text-xs); }
+.hl-btn--small,
+.hl-btn--sm { height: 32px; padding: 0 var(--hl-sp-3); font-size: var(--hl-text-xs); }
+.hl-btn--medium,
+.hl-btn--md { height: 40px; padding: 0 var(--hl-sp-4); font-size: var(--hl-text-sm); }
+.hl-btn--large,
+.hl-btn--lg { height: 48px; padding: 0 var(--hl-sp-5); font-size: var(--hl-text-base); }
+.hl-btn--xlarge,
+.hl-btn--xl { height: 56px; padding: 0 var(--hl-sp-6); font-size: var(--hl-text-md); }
 
 .hl-btn--primary {
-  background: var(--hl-primary-600); color: var(--hl-text-inverse);
-  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 1px 3px rgba(0,40,100,.15);
+  background: var(--hl-primary-900); color: var(--hl-text-inverse);
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 6px 16px rgba(0,43,104,.16);
 }
 .hl-btn--primary:hover {
-  background: var(--hl-primary-700);
+  background: var(--hl-primary-800);
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 4px 12px rgba(0,100,180,.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 10px 20px rgba(0,43,104,.18);
+}
+.hl-btn--primary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--hl-primary-700);
+}
+.hl-btn--primary:disabled,
+.hl-btn--primary[aria-disabled="true"] {
+  background: var(--hl-gray-300);
+  border-color: var(--hl-gray-300);
+  color: var(--hl-gray-0);
 }
 
 .hl-btn--secondary {
-  background: var(--hl-surface); color: var(--hl-text);
-  border-color: var(--hl-border);
+  background: var(--hl-surface); color: var(--hl-primary-900);
+  border-color: var(--hl-border-strong);
   box-shadow: 0 1px 2px rgba(0,0,0,.04);
 }
 .hl-btn--secondary:hover {
-  background: var(--hl-surface-raised); border-color: var(--hl-border-strong);
+  background: var(--hl-primary-50); border-color: var(--hl-primary-700);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0,0,0,.06);
 }
-
-.hl-btn--ghost {
-  background: transparent; color: var(--hl-text-secondary);
+.hl-btn--secondary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--hl-primary-100);
 }
-.hl-btn--ghost:hover { background: var(--hl-surface-raised); color: var(--hl-text); }
+.hl-btn--secondary:disabled,
+.hl-btn--secondary[aria-disabled="true"] {
+  background: var(--hl-surface-raised);
+  border-color: var(--hl-border);
+  color: var(--hl-text-disabled);
+}
+
+.hl-btn--tertiary,
+.hl-btn--ghost {
+  background: transparent; color: var(--hl-primary-700);
+}
+.hl-btn--tertiary:hover,
+.hl-btn--ghost:hover {
+  background: var(--hl-primary-50); color: var(--hl-primary-900);
+}
+.hl-btn--tertiary:active:not(:disabled):not([aria-disabled="true"]),
+.hl-btn--ghost:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--hl-primary-100);
+}
+.hl-btn--tertiary:disabled,
+.hl-btn--ghost:disabled,
+.hl-btn--tertiary[aria-disabled="true"],
+.hl-btn--ghost[aria-disabled="true"] {
+  color: var(--hl-text-disabled);
+}
 
 .hl-btn--danger {
   background: var(--hl-error); color: var(--hl-text-inverse);
-  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 1px 3px rgba(180,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 6px 16px rgba(201,48,44,.14);
 }
 .hl-btn--danger:hover {
-  background: #b91c1c;
+  background: #a62825;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 4px 12px rgba(180,0,0,.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 10px 20px rgba(166,40,37,.16);
+}
+.hl-btn--danger:active:not(:disabled):not([aria-disabled="true"]) {
+  background: #8f211f;
+}
+.hl-btn--danger:disabled,
+.hl-btn--danger[aria-disabled="true"] {
+  background: var(--hl-gray-300);
+  border-color: var(--hl-gray-300);
+  color: var(--hl-gray-0);
+}
+
+[data-theme="dark"] .hl-btn--secondary,
+.dark .hl-btn--secondary {
+  background: var(--hl-surface);
+  color: var(--hl-primary-200);
+  border-color: var(--hl-border-strong);
+}
+[data-theme="dark"] .hl-btn--secondary:hover,
+.dark .hl-btn--secondary:hover {
+  background: rgba(48,173,224,.12);
+  border-color: var(--hl-primary-300);
+}
+[data-theme="dark"] .hl-btn--tertiary,
+[data-theme="dark"] .hl-btn--ghost,
+.dark .hl-btn--tertiary,
+.dark .hl-btn--ghost {
+  color: var(--hl-primary-300);
+}
+[data-theme="dark"] .hl-btn--tertiary:hover,
+[data-theme="dark"] .hl-btn--ghost:hover,
+.dark .hl-btn--tertiary:hover,
+.dark .hl-btn--ghost:hover {
+  background: rgba(48,173,224,.14);
+  color: var(--hl-primary-100);
 }
 
 /* ==========================================================================
@@ -540,7 +625,7 @@ code,pre { font-family: var(--hl-mono); }
               box-shadow var(--hl-dur) var(--hl-ease);
 }
 .hl-input:hover { border-color: var(--hl-border-strong); box-shadow: 0 0 0 1px var(--hl-border-strong); }
-.hl-input:focus { outline: none; border-color: var(--hl-border-focus); box-shadow: 0 0 0 3px rgba(0,145,199,.15); }
+.hl-input:focus { outline: none; border-color: var(--hl-border-focus); box-shadow: 0 0 0 3px rgba(0,180,237,.18); }
 .hl-input::placeholder { color: var(--hl-text-muted); }
 .hl-input--error { border-color: var(--hl-error); }
 
@@ -665,7 +750,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
 .hl-table tr { height: 40px; }
 .hl-table tbody tr { transition: background var(--hl-dur) var(--hl-ease); }
 .hl-table tbody tr:hover { background: var(--hl-primary-50); }
-[data-theme="dark"] .hl-table tbody tr:hover { background: rgba(0,145,199,.06); }
+[data-theme="dark"] .hl-table tbody tr:hover { background: rgba(48,173,224,.08); }
 
 .hl-table .mono { font-family: var(--hl-mono); font-size: var(--hl-text-xs); }
 .hl-table .bold { font-weight: 600; }
@@ -1006,7 +1091,7 @@ select.hl-input { cursor: pointer; padding-right: var(--hl-sp-8); }
   transition: border-color var(--hl-dur) var(--hl-ease);
 }
 .hl-textarea:hover { border-color: var(--hl-border-strong); }
-.hl-textarea:focus { outline: none; border-color: var(--hl-border-focus); box-shadow: 0 0 0 3px rgba(0,145,199,.12); }
+.hl-textarea:focus { outline: none; border-color: var(--hl-border-focus); box-shadow: 0 0 0 3px rgba(0,180,237,.18); }
 .hl-textarea::placeholder { color: var(--hl-text-muted); }
 
 /* ==========================================================================

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="HL">
   <defs>
     <linearGradient id="hlBrandGrad" x1="6" y1="4" x2="26" y2="28" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1fb8ed"/>
-      <stop offset="0.45" stop-color="#0091c7"/>
+      <stop stop-color="#30ade0"/>
+      <stop offset="0.45" stop-color="#0095c8"/>
       <stop offset="1" stop-color="#002B68"/>
     </linearGradient>
   </defs>
