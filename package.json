@@ -15,7 +15,7 @@
     "build": "vite build",
     "postbuild": "node scripts/finalize-build.mjs",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build --nojekyll"
   },
   "dependencies": {
     "react": "^18.3.1",

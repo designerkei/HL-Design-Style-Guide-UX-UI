@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync } from 'node:fs';
+import { copyFileSync, existsSync, writeFileSync } from 'node:fs';
 import { isAbsolute, relative, resolve } from 'node:path';
 import process from 'node:process';
 
@@ -16,9 +16,11 @@ if (
 
 const indexPath = resolve(outDir, 'index.html');
 const notFoundPath = resolve(outDir, '404.html');
+const noJekyllPath = resolve(outDir, '.nojekyll');
 
 if (!existsSync(indexPath)) {
   throw new Error(`Build output not found: ${indexPath}`);
 }
 
 copyFileSync(indexPath, notFoundPath);
+writeFileSync(noJekyllPath, '');
